@@ -1,148 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Casarão da Beleza & Saúde</title>
-  <style>
-    /* ====== DESIGN SYSTEM CASARÃO ====== */
-    :root {
-      --blue-dark: #0C1C3D;
-      --blue-mid: #1E2E5C;
-      --gold: #E0C97F;
-      --white: #F9F9F9;
-      --silver: #C5C6C7;
-      --radius: 18px;
-    }
-    * {margin:0;padding:0;box-sizing:border-box;font-family: 'Inter', sans-serif;}
-    body {background: var(--blue-dark); color: var(--white); line-height:1.6;}
-    section {padding:80px 20px; max-width:1200px; margin:auto;}
-    h1,h2,h3 {font-family: 'Playfair Display', serif; color: var(--gold);}
-    h1 {font-size:2.5rem;}
-    h2 {font-size:2rem; margin-bottom:20px;}
-    h3 {font-size:1.4rem; margin-bottom:10px;}
-    p {margin-bottom:12px;}
-    a.btn {
-      display:inline-block; padding:12px 24px; border-radius: var(--radius);
-      text-decoration:none; font-weight:bold; margin-top:15px;
-      background: var(--gold); color: var(--blue-dark);
-      transition: all .3s;
-    }
-    a.btn:hover {background: var(--white); color: var(--blue-dark);}
-    nav {
-      position:fixed; top:0; left:0; width:100%; background:rgba(12,28,61,0.95);
-      display:flex; justify-content:center; gap:20px; padding:10px; z-index:1000;
-    }
-    nav a {color:var(--white); text-decoration:none; font-weight:600;}
-    nav a:hover {color:var(--gold);}
-    /* Cards */
-    .cards {display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-    .card {background:var(--blue-mid); padding:20px; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,.4);}
-    .card h3{color:var(--gold);}
-    /* Footer */
-    footer {background:var(--blue-mid); text-align:center; padding:40px; color:var(--silver);}
-    /* WhatsApp Floating */
-    .whatsapp {
-      position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff;
-      border-radius:50%; padding:16px; font-size:24px; text-decoration:none; box-shadow:0 4px 8px rgba(0,0,0,.3);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casarão da Beleza & Saúde — Beleza que respeita sua essência</title>
+<meta name="description" content="Protocolos exclusivos, +10.000 atendimentos em Diadema. Agende sua avaliação guiada.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casarão da Beleza & Saúde">
+<meta property="og:description" content="Beleza que respeita sua essência. Protocolos exclusivos em Diadema.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="assets/favicon.svg">
+<style>
+/* =======================
+   DESIGN SYSTEM — TOKENS
+   =======================*/
+:root{
+  /* Paleta Luxo Noturno (balanceada) */
+  --blue-900:#0C1C3D;   /* fundo principal */
+  --blue-800:#132650;   /* seções escuras */
+  --blue-100:#EFF3FA;   /* painéis claros */
+  --gold:#E0C97F;       /* acento/CTA */
+  --gold-700:#C6B062;
+  --text:#F7F8FA;       /* texto sobre escuro */
+  --ink:#1B1F24;        /* texto sobre claro */
+  --muted:#8EA0B8;      /* texto secundário escuro */
+  --silver:#C5C6C7;     /* bordas/ícones claros */
+
+  /* Tipos (sistema por performance; troque depois por Playfair/Inter) */
+  --ff-serif: ui-serif, Georgia, "Times New Roman", serif;
+  --ff-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  /* Tamanhos escálaveis */
+  --fs-hero: clamp(2.2rem, 4.2vw, 3.1rem);
+  --fs-h2: clamp(1.6rem, 2.5vw, 2.2rem);
+  --fs-h3: clamp(1.2rem, 1.6vw, 1.35rem);
+  --fs-body: 1rem;
+
+  /* Layout */
+  --container: min(1120px, 92vw);
+  --radius: 18px;
+  --shadow: 0 20px 40px rgba(0,0,0,.20);
+}
+
+/* =======================
+   BASE / RESET
+   =======================*/
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--blue-900); color:var(--text);
+  font: 400 var(--fs-body)/1.6 var(--ff-sans);
+}
+a{color:inherit}
+img{max-width:100%; display:block}
+
+/* Acessibilidade */
+a:focus-visible, button:focus-visible, summary:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto}
+}
+
+/* =======================
+   LAYOUT
+   =======================*/
+.container{width:var(--container); margin-inline:auto; padding:64px 0}
+.section-dark{background:var(--blue-800)}
+.section-light{background:var(--blue-100); color:var(--ink)}
+.section-light h2, .section-light h3{color:var(--ink)}
+.section-tight{padding:40px 0}
+
+h1{font: 700 var(--fs-hero)/1.15 var(--ff-serif); letter-spacing:-.02em; color:var(--text)}
+h2{font: 700 var(--fs-h2)/1.2 var(--ff-serif); letter-spacing:-.015em; color:var(--gold); margin:0 0 16px}
+h3{font: 700 var(--fs-h3)/1.2 var(--ff-sans); margin:0 0 8px}
+.lead{color:var(--muted); max-width:60ch}
+
+/* =======================
+   NAV
+   =======================*/
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:12px; top:12px; background:#fff; color:#000; padding:8px 12px; border-radius:8px}
+
+.nav{
+  position:sticky; top:0; z-index:20; backdrop-filter: blur(6px);
+  background: rgba(12,28,61,.75); border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav .wrap{
+  width:var(--container); margin:auto; display:flex; gap:20px; align-items:center; padding:10px 0
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:800}
+.brand .dot{width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px rgba(224,201,127,.8)}
+.nav a{color:var(--text); text-decoration:none; font-weight:600; opacity:.9}
+.nav a:hover{opacity:1}
+.nav .spacer{flex:1}
+.cta-small{
+  display:inline-block; padding:10px 14px; border-radius:12px; background:var(--gold); color:#0b0b0b; font-weight:800; text-decoration:none
+}
+
+/* =======================
+   HERO
+   =======================*/
+.hero{
+  min-height:72vh; display:grid; place-items:center; text-align:center; padding:90px 0 60px;
+  background:
+    radial-gradient(1000px 600px at 80% -10%, rgba(224,201,127,.10), transparent 60%),
+    radial-gradient(800px 500px at 10% 10%, rgba(98,126,234,.14), transparent 60%),
+    var(--blue-900);
+}
+.hero .kpis{display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin:12px 0 24px}
+.kpi{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px; font-weight:600; color:var(--silver)}
+
+/* =======================
+   GRID / CARDS
+   =======================*/
+.grid{display:grid; gap:20px}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){
+  .grid.cols-3,.grid.cols-2{grid-template-columns:1fr}
+}
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
+  border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)
+}
+.card.light{
+  background:#fff; border:1px solid #E7ECF5; color:var(--ink)
+}
+
+/* =======================
+   COMPONENTES
+   =======================*/
+.btn{
+  display:inline-block; padding:14px 22px; border-radius:14px; text-decoration:none; font-weight:800; letter-spacing:.2px
+}
+.btn.primary{background:var(--gold); color:#0B0B0B}
+.btn.primary:hover{background:var(--gold-700)}
+.btn.ghost{border:2px solid var(--gold); color:var(--text)}
+.btn.ghost:hover{background:rgba(224,201,127,.12)}
+.badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); color:var(--silver); font-weight:600}
+
+/* Carrossel simples com scroll-snap */
+.snap{display:flex; gap:16px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:8px}
+.snap > figure{min-width:280px; scroll-snap-align:start; margin:0}
+.figure{background:#0f1e44; border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden}
+.figure img{aspect-ratio:4/3; object-fit:cover; width:100%}
+.caption{padding:10px 12px; font-size:.95rem; color:var(--silver)}
+
+/* FAQ */
+details{border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:14px 16px; background:rgba(255,255,255,.02)}
+details+details{margin-top:10px}
+summary{cursor:pointer; font-weight:700}
+
+/* Agenda bloco */
+.actions{display:flex; gap:12px; flex-wrap:wrap}
+
+/* Rodapé */
+.footer{background:var(--blue-800); color:var(--silver); font-size:.95rem}
+
+/* Botão flutuante WhatsApp */
+.whats{
+  position:fixed; right:16px; bottom:16px; z-index:10; text-decoration:none;
+  background:#25D366; color:#fff; border-radius:999px; padding:12px 16px; font-weight:900; box-shadow:0 8px 18px rgba(0,0,0,.35)
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a href="#hero">Início</a>
-    <a href="#jornadas">Jornadas</a>
-    <a href="#protocolos">Protocolos</a>
-    <a href="#time">Time</a>
-    <a href="#faq">FAQ</a>
-    <a href="#localizacao">Local</a>
-  </nav>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- NAV -->
+<header class="nav" role="navigation" aria-label="Principal">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> Casarão</div>
+    <nav aria-label="Âncoras da página" style="display:flex; gap:16px; flex-wrap:wrap">
+      <a href="#hero">Início</a>
+      <a href="#porque">Por que</a>
+      <a href="#jornadas">Jornadas</a>
+      <a href="#protocolos">Protocolos</a>
+      <a href="#provas">Resultados</a>
+      <a href="#time">Time</a>
+      <a href="#faq">FAQ</a>
+      <a href="#local">Local</a>
+    </nav>
+    <div class="spacer"></div>
+    <a class="cta-small" href="https://wa.me/5511987219029?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" data-evt="whats-top">Agendar</a>
+  </div>
+</header>
+
+<main id="conteudo">
 
   <!-- HERO -->
-  <section id="hero" style="text-align:center; padding-top:120px;">
-    <h1>Beleza que respeita sua essência</h1>
-    <p>Protocolos exclusivos e +10.000 atendimentos em Diadema</p>
-    <a href="#agenda" class="btn">Agendar Avaliação</a>
+  <section id="hero" class="hero">
+    <div class="container" style="text-align:center">
+      <h1>Beleza que respeita sua essência.</h1>
+      <p class="lead">Protocolos exclusivos. <strong>+10.000 atendimentos</strong> em Diadema. “Libertar-se dos padrões, criar seu estilo”.</p>
+      <div class="kpis">
+        <span class="kpi">Referência em Diadema</span>
+        <span class="kpi">Avaliação guiada</span>
+        <span class="kpi">Biossegurança</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="#agenda">Agendar avaliação</a>
+        <a class="btn ghost" href="#jornadas">Ver Jornadas de Resultado</a>
+      </div>
+    </div>
   </section>
 
-  <!-- POR QUE CASARÃO -->
-  <section id="porque">
-    <h2>Por que escolher o Casarão?</h2>
-    <div class="cards">
-      <div class="card"><h3>Metodologia própria</h3><p>Protocolos nomeados e exclusivos.</p></div>
-      <div class="card"><h3>Time especialista</h3><p>Profissionais certificados e reconhecidos.</p></div>
-      <div class="card"><h3>Cuidado 360°</h3><p>Beleza e saúde integradas.</p></div>
+  <!-- POR QUE -->
+  <section id="porque" class="section-dark">
+    <div class="container">
+      <h2>Por que o Casarão</h2>
+      <p class="lead">Três bases simples e eternas: método próprio, especialistas e cuidado 360 (beleza & saúde).</p>
+      <div class="grid cols-3" style="margin-top:16px">
+        <div class="card">
+          <h3>Metodologia própria</h3>
+          <p>Protocolos nomeados e documentados para cada objetivo (pele, cabelo, sobrancelhas).</p>
+        </div>
+        <div class="card">
+          <h3>Time especialista</h3>
+          <p>Profissionais com certificações e prática diária — atendimento humano, sem pressa.</p>
+        </div>
+        <div class="card">
+          <h3>Cuidado 360°</h3>
+          <p>Integramos estética, saúde e rotina de manutenção — resultado que permanece.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- JORNADAS -->
-  <section id="jornadas">
-    <h2>Jornadas de Resultado</h2>
-    <div class="cards">
-      <div class="card"><h3>Pele Saudável</h3><p>Limpeza de pele avançada e manutenção.</p></div>
-      <div class="card"><h3>Cabelo com Assinatura</h3><p>Diagnóstico, cor e corte exclusivos.</p></div>
-      <div class="card"><h3>Sobrancelhas Harmônicas</h3><p>Design, henna e manutenção express.</p></div>
-      <div class="card"><h3>Ritual Completo</h3><p>Combina pele, cabelo e spa urbano.</p></div>
+  <section id="jornadas" class="section-light">
+    <div class="container">
+      <h2>Jornadas de Resultado</h2>
+      <p class="lead">Em vez de “lista de serviços”, caminhos claros para o que você quer alcançar.</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="card light">
+          <h3>Pele Saudável</h3>
+          <p>Limpeza de pele avançada, LED calmante e plano de manutenção de 90 dias.</p>
+        </div>
+        <div class="card light">
+          <h3>Cabelo com Assinatura</h3>
+          <p>Diagnóstico de cor e corte, brilho e proteção — assinatura que combina com você.</p>
+        </div>
+        <div class="card light">
+          <h3>Sobrancelhas Harmônicas</h3>
+          <p>Design + henna/tona, mantendo expressão natural e simetria suave.</p>
+        </div>
+        <div class="card light">
+          <h3>Ritual Completo</h3>
+          <p>Day Spa urbano: pele + cabelo + bem-estar para ocasiões especiais.</p>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:12px">
+        <a class="btn primary" href="#agenda">Escolher minha jornada</a>
+      </div>
     </div>
   </section>
 
   <!-- PROTOCOLOS -->
-  <section id="protocolos">
-    <h2>Protocolos Estrela</h2>
-    <div class="cards">
-      <div class="card"><h3>Glow 90’</h3><p>Limpeza profunda + LED calmante.</p></div>
-      <div class="card"><h3>Color Design 3D</h3><p>Nuance e brilho personalizados.</p></div>
-      <div class="card"><h3>Brow Harmony</h3><p>Design + henna em 30 minutos.</p></div>
+  <section id="protocolos" class="section-dark">
+    <div class="container">
+      <h2>Protocolos-estrela</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <div class="card"><h3>Casarão Glow 90’</h3><p>Limpeza, extração suave, LED e máscara calmante. Conforto e viço imediato.</p></div>
+        <div class="card"><h3>Color Design 3D</h3><p>Diagnóstico de cor/nuance + técnica de brilho duradouro, respeitando seu subtom.</p></div>
+        <div class="card"><h3>Brow Harmony Express</h3><p>Design + henna/tona em 30’, com manutenção guiada.</p></div>
+      </div>
+      <div class="actions" style="margin-top:12px"><a class="btn ghost" href="#agenda">Reservar protocolo</a></div>
     </div>
   </section>
 
-  <!-- OFERTA -->
-  <section id="oferta" style="text-align:center;">
-    <h2>Primeira Visita</h2>
-    <p>Avaliação guiada + plano de 90 dias. Bônus: guia personalizado.</p>
-    <a href="#agenda" class="btn">Agendar Agora</a>
+  <!-- RESULTADOS (ANTES/DEPOIS) -->
+  <section id="provas" class="section-light">
+    <div class="container">
+      <h2>Resultados reais</h2>
+      <p class="lead">Contexto completo (desafio → protocolo → manutenção). Ética visual: mesmos ângulos e luz.</p>
+      <div class="snap" style="margin-top:12px">
+        <figure class="figure"><img src="assets/pele-01.jpg" alt="Antes e depois pele (2 sessões Glow 90’)"><figcaption class="caption">Pele oleosa · 2 sessões Glow 90’ → textura uniforme</figcaption></figure>
+        <figure class="figure"><img src="assets/cabelo-01.jpg" alt="Color Design 3D com brilho"><figcaption class="caption">Color 3D → brilho e nuance preservando saúde</figcaption></figure>
+        <figure class="figure"><img src="assets/brow-01.jpg" alt="Brow Harmony express"><figcaption class="caption">Brow Harmony → linhas naturais e harmônicas</figcaption></figure>
+      </div>
+      <p style="color:#5f6b7a; margin-top:8px">* Resultados variam por perfil. Seguimos biossegurança e boas práticas.</p>
+    </div>
+  </section>
+
+  <!-- OFERTA PRIMEIRA VISITA -->
+  <section id="oferta" class="section-dark">
+    <div class="container">
+      <h2>Primeira visita guiada</h2>
+      <p class="lead">Consulta + plano de 90 dias. Bônus: guia de cuidados personalizado.</p>
+      <div class="actions"><a class="btn primary" href="#agenda">Agendar avaliação</a></div>
+    </div>
   </section>
 
   <!-- TIME -->
-  <section id="time">
-    <h2>Nosso Time</h2>
-    <div class="cards">
-      <div class="card"><h3>Ana</h3><p>Especialista em pele</p></div>
-      <div class="card"><h3>Marcos</h3><p>Hair Designer</p></div>
-      <div class="card"><h3>Luiza</h3><p>Design de Sobrancelhas</p></div>
+  <section id="time" class="section-light">
+    <div class="container">
+      <h2>Nosso time</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <article class="card light"><h3>Ana — Estética</h3><p>Especialista em pele e protocolos calmantes.</p><a class="btn ghost" href="#agenda">Agendar com Ana</a></article>
+        <article class="card light"><h3>Marcos — Hair</h3><p>Colorimetria e cortes com assinatura.</p><a class="btn ghost" href="#agenda">Agendar com Marcos</a></article>
+        <article class="card light"><h3>Luiza — Brows</h3><p>Design de sobrancelhas natural e preciso.</p><a class="btn ghost" href="#agenda">Agendar com Luiza</a></article>
+      </div>
     </div>
   </section>
 
   <!-- AGENDA -->
-  <section id="agenda" style="text-align:center;">
-    <h2>Agende seu horário</h2>
-    <a href="https://wa.me/5511987219029" class="btn">WhatsApp</a>
-    <a href="tel:+5511987219029" class="btn">Ligar</a>
-    <a href="#" class="btn">Agenda Online</a>
+  <section id="agenda" class="section-dark">
+    <div class="container">
+      <h2>Agendar agora</h2>
+      <p class="lead">Confirmação rápida. Sem taxa de reserva. Cancelamento gratuito até 24h.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://wa.me/5511987219029?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" data-evt="whats">WhatsApp</a>
+        <a class="btn ghost" href="tel:+5511987219029" data-evt="call">Ligar</a>
+        <a class="btn ghost" href="https://www.fresha.com/lvp/casarao-da-beleza-e-saude-rua-itaguare-ov3a29" target="_blank" rel="noopener" data-evt="agenda">Agenda online</a>
+      </div>
+    </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>Perguntas Frequentes</h2>
-    <details class="card"><summary>Limpeza de pele dói?</summary><p>Não, usamos técnicas suaves com LED calmante.</p></details>
-    <details class="card"><summary>Quanto dura a coloração?</summary><p>6 a 8 semanas, dependendo da rotina.</p></details>
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="section-light">
+    <div class="container">
+      <h2>O que dizem</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <blockquote class="card light"><p>“Voltei a me reconhecer no espelho sem filtros.”</p><footer>— Ana M., 34 · Cliente verificada</footer></blockquote>
+        <blockquote class="card light"><p>“Não é só salão. É cuidado real com a gente.”</p><footer>— Camila R., 29 · Cliente verificada</footer></blockquote>
+        <blockquote class="card light"><p>“Coloração perfeita e cabelo saudável. Virei fã.”</p><footer>— Paula S., 38 · Cliente verificada</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (SEO) -->
+  <section id="faq" class="section-dark">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <details><summary>Limpeza de pele dói?</summary><p>Usamos extração suave e LED calmante para conforto durante o processo.</p></details>
+      <details><summary>Quanto tempo dura a coloração?</summary><p>Em média 6–8 semanas, variando por rotina e exposição solar/química.</p></details>
+      <details><summary>Posso agendar por WhatsApp?</summary><p>Sim. Clique em “WhatsApp” e receba confirmação rápida.</p></details>
+    </div>
   </section>
 
   <!-- LOCAL -->
-  <section id="localizacao" style="text-align:center;">
-    <h2>Onde Estamos</h2>
-    <p>Rua Itaguaré, 85 – Centro, Diadema/SP</p>
-    <iframe src="https://maps.google.com/maps?q=Rua%20Itaguare%2085%20Diadema&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:var(--radius);"></iframe>
+  <section id="local" class="section-light">
+    <div class="container">
+      <h2>Onde estamos</h2>
+      <p class="lead">Rua Itaguaré, 85 — Centro, Diadema/SP — CEP 09910-360</p>
+      <div class="grid cols-2" style="margin-top:12px">
+        <div class="card light">
+          <h3>Horários</h3>
+          <p>Ter–Sex 09:00–20:00 · Sáb 09:00–16:00 · Dom/Seg fechado</p>
+          <p><strong>Telefone/WhatsApp:</strong> (11) 98721-9029</p>
+          <div class="actions">
+            <a class="btn ghost" href="https://maps.google.com/?q=R.+Itaguar%C3%A9%2C+85+-+Centro%2C+Diadema+-+SP%2C+09910-360" target="_blank" rel="noopener">Ver rotas</a>
+          </div>
+        </div>
+        <div class="card light">
+          <iframe title="Mapa Casarão" src="https://maps.google.com/maps?q=Rua%20Itaguar%C3%A9%2085%20Diadema&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="260" style="border:0; border-radius:12px"></iframe>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Casarão da Beleza & Saúde • Todos os direitos reservados</p>
-  </footer>
+  <!-- BLOG GUIA -->
+  <section id="blog" class="section-dark">
+    <div class="container">
+      <h2>Guia rápido</h2>
+      <div class="grid cols-3" style="margin-top:12px">
+        <article class="card"><h3>Checklist pré-limpeza de pele</h3><p>Como chegar na sessão com pele pronta para melhores resultados.</p></article>
+        <article class="card"><h3>Coloração que respeita seu subtom</h3><p>O que considerar para uma cor bonita e durável.</p></article>
+        <article class="card"><h3>Manutenção das sobrancelhas</h3><p>Dicas simples para manter harmonia entre sessões.</p></article>
+      </div>
+    </div>
+  </section>
 
-  <!-- WhatsApp Floating -->
-  <a href="https://wa.me/5511987219029" class="whatsapp">💬</a>
+  <!-- CTA FINAL -->
+  <section id="cta" class="section-light section-tight">
+    <div class="container" style="text-align:center">
+      <h2>Beleza que respeita sua essência</h2>
+      <p class="lead">Agende sua primeira avaliação guiada e receba um plano de 90 dias.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn primary" href="#agenda">Agendar agora</a>
+      </div>
+    </div>
+  </section>
 
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © 2025 Casarão da Beleza & Saúde · R. Itaguaré, 85 — Centro, Diadema/SP · (11) 98721-9029
+  </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a class="whats" href="https://wa.me/5511987219029?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" aria-label="Abrir WhatsApp" data-evt="whats-float">WhatsApp</a>
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"BeautySalon",
+ "name":"Casarão da Beleza & Saúde",
+ "description":"Beleza que respeita sua essência. Protocolos exclusivos e +10.000 atendimentos em Diadema.",
+ "address":{"@type":"PostalAddress","streetAddress":"Rua Itaguaré, 85","addressLocality":"Diadema","addressRegion":"SP","postalCode":"09910-360","addressCountry":"BR"},
+ "telephone":"+55 11 98721-9029",
+ "url":"https://example.com",
+ "sameAs":[
+   "https://www.instagram.com/casaraodabelezaesaude/",
+   "https://www.fresha.com/lvp/casarao-da-beleza-e-saude-rua-itaguare-ov3a29"
+ ],
+ "openingHours":["Tu-Fr 09:00-20:00","Sa 09:00-16:00"]
+}
+</script>
+
+<!-- Eventos básicos de clique (para futura medição) -->
+<script>
+document.querySelectorAll('[data-evt]').forEach(el=>{
+  el.addEventListener('click', e=>{
+    // placeholder: troque por GA4/pixel — aqui só loga no console
+    console.log('evento', el.getAttribute('data-evt'));
+  });
+});
+</script>
 </body>
 </html>

@@ -1,388 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lara Luíza • Makeup | Noivas & Social em BH</title>
-  <meta name="description" content="Maquiadora em Lourdes - Belo Horizonte. Especialista em noivas, beleza natural e pele glow. Agende seu horário." />
-  <meta name="color-scheme" content="light dark" />
-
-  <!-- Open Graph básico -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Lara Luíza • Makeup | Noivas & Social em BH">
-  <meta property="og:description" content="Beleza natural, pele glow e acabamento profissional. Agende seu horário.">
-  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%23f5e9e5'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='64' fill='%23222222'>Lara Luíza • Makeup</text></svg>">
-
-  <!-- Favicon inline simples -->
-  <link rel="icon" type="image/svg+xml"
-    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%23f5e9e5"/><text x="50%" y="54%" text-anchor="middle" font-family="serif" font-size="28" fill="%23222222">L</text></svg>'>
-
-  <!-- ===== CSS inline ===== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casarão da Beleza & Saúde</title>
   <style>
-    :root{
-      --bg:#ffffff; --fg:#1f1f1f; --muted:#6b6b6b;
-      --brand:#d9a39a; --brand-ink:#2a1f1e; --card:#f7f4f3; --ring:rgba(0,0,0,.08);
-      --radius:14px;
+    /* ====== DESIGN SYSTEM CASARÃO ====== */
+    :root {
+      --blue-dark: #0C1C3D;
+      --blue-mid: #1E2E5C;
+      --gold: #E0C97F;
+      --white: #F9F9F9;
+      --silver: #C5C6C7;
+      --radius: 18px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0f0f10; --fg:#efefef; --muted:#b4b4b4; --card:#1a1a1b; --ring:rgba(255,255,255,.12); }
+    * {margin:0;padding:0;box-sizing:border-box;font-family: 'Inter', sans-serif;}
+    body {background: var(--blue-dark); color: var(--white); line-height:1.6;}
+    section {padding:80px 20px; max-width:1200px; margin:auto;}
+    h1,h2,h3 {font-family: 'Playfair Display', serif; color: var(--gold);}
+    h1 {font-size:2.5rem;}
+    h2 {font-size:2rem; margin-bottom:20px;}
+    h3 {font-size:1.4rem; margin-bottom:10px;}
+    p {margin-bottom:12px;}
+    a.btn {
+      display:inline-block; padding:12px 24px; border-radius: var(--radius);
+      text-decoration:none; font-weight:bold; margin-top:15px;
+      background: var(--gold); color: var(--blue-dark);
+      transition: all .3s;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-      color:var(--fg); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    a.btn:hover {background: var(--white); color: var(--blue-dark);}
+    nav {
+      position:fixed; top:0; left:0; width:100%; background:rgba(12,28,61,0.95);
+      display:flex; justify-content:center; gap:20px; padding:10px; z-index:1000;
     }
-    .container{width:min(1080px,92%); margin:0 auto}
-
-    /* Header */
-    .site-header{position:sticky; top:0; z-index:50; background:color-mix(in oklab, var(--bg) 96%, transparent); border-bottom:1px solid var(--ring); backdrop-filter: blur(8px);}
-    .header-inner{display:flex; align-items:center; justify-content:space-between; min-height:64px; gap:16px}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
-    .brand-mark{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;font-weight:700;background:var(--brand);color:var(--brand-ink)}
-    .brand-text{font-family: ui-serif, Georgia, "Times New Roman", serif; font-size:1.1rem; letter-spacing:.2px}
-    .brand-sub{margin-left:6px; font-size:.9rem; opacity:.7}
-    .nav .menu{display:flex; gap:14px; align-items:center; list-style:none; margin:0; padding:0}
-    .nav a{text-decoration:none; color:inherit; padding:8px 10px; border-radius:8px}
-    .nav a:hover{background:var(--ring)}
-    .nav-toggle{display:none}
-    .icon-btn{background:transparent; border:1px solid var(--ring); padding:6px 10px; border-radius:8px; cursor:pointer}
-
-    .btn{display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:600; border:1px solid var(--ring)}
-    .btn--small{padding:8px 12px}
-    .btn--xl{padding:16px 22px; font-size:1.05rem}
-    .btn--primary{background:var(--brand); color:var(--brand-ink); border-color:transparent}
-    .btn--ghost{background:transparent}
-
-    .eyebrow{text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-size:.8rem}
-    .lead{font-size:1.15rem; color:var(--muted)}
-
-    /* Hero */
-    .hero{padding:48px 0 24px}
-    .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:28px}
-    .hero-media img{width:100%; height:auto; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.08)}
-    .badges{display:flex; gap:10px; padding:0; margin:14px 0 0; list-style:none; flex-wrap:wrap}
-    .badges li{background:var(--card); padding:8px 12px; border-radius:999px; border:1px solid var(--ring)}
-
-    /* Sections */
-    .section{padding:72px 0}
-    .section--alt{background:var(--card)}
-    .section-head h2{margin:0 0 6px; font-family: ui-serif, Georgia, "Times New Roman", serif; font-size:clamp(1.6rem,1.2rem + 1.5vw,2.2rem)}
-    .section-head p{margin:0 0 28px; color:var(--muted)}
-
-    /* Cards (serviços) */
-    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-    .card{background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:18px}
-    .card h3{margin:0 0 8px}
-    .bullets{margin:12px 0 0; padding-left:18px; color:var(--muted)}
-
-    /* Grid (portfólio) */
-    .grid{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
-    .thumb{padding:0; background:none; border:none; cursor:zoom-in}
-    .thumb img{width:100%; height:100%; object-fit:cover; aspect-ratio:1/1; border-radius:var(--radius)}
-
-    /* Lightbox <dialog> */
-    dialog#lightbox{border:none; padding:0; background:transparent}
-    dialog::backdrop{background:rgba(0,0,0,.6)}
-    #lightbox img{max-width:min(92vw,980px); max-height:85vh; display:block; border-radius:var(--radius)}
-    .lb-close{position:fixed; top:18px; right:18px; z-index:2; border:none; background:rgba(0,0,0,.55); color:#fff; width:44px; height:44px; border-radius:999px; font-size:26px; cursor:pointer}
-
-    /* Sobre / Depoimentos / Contato */
-    .about{display:grid; grid-template-columns:1fr; gap:16px}
-    .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    blockquote{margin:0; background:var(--card); border:1px solid var(--ring); border-radius:var(--radius); padding:16px}
-    blockquote footer{color:var(--muted); margin-top:6px}
-    .contact-cta{display:flex; gap:12px; flex-wrap:wrap}
-    .address{margin-top:14px; color:var(--muted)}
-    .site-footer{border-top:1px solid var(--ring); padding:28px 0}
-    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .social{list-style:none; display:flex; gap:12px; padding:0; margin:0}
-
-    /* Responsivo */
-    @media (max-width:980px){
-      .hero-inner{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .testimonials{grid-template-columns:1fr}
-    }
-    @media (max-width:760px){
-      .nav-toggle{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ring); background:transparent; padding:8px 12px; border-radius:10px}
-      .menu{position:fixed; inset:64px 0 auto 0; background:var(--bg); border-bottom:1px solid var(--ring);
-            padding:10px 4vw; transform:translateY(-120%); transition:transform .25s ease; flex-direction:column; align-items:flex-start; gap:6px}
-      .menu.open{transform:translateY(0)}
+    nav a {color:var(--white); text-decoration:none; font-weight:600;}
+    nav a:hover {color:var(--gold);}
+    /* Cards */
+    .cards {display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+    .card {background:var(--blue-mid); padding:20px; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,.4);}
+    .card h3{color:var(--gold);}
+    /* Footer */
+    footer {background:var(--blue-mid); text-align:center; padding:40px; color:var(--silver);}
+    /* WhatsApp Floating */
+    .whatsapp {
+      position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff;
+      border-radius:50%; padding:16px; font-size:24px; text-decoration:none; box-shadow:0 4px 8px rgba(0,0,0,.3);
     }
   </style>
 </head>
 <body>
-  <!-- ===== Cabeçalho ===== -->
-  <header class="site-header" aria-label="Cabeçalho do site">
-    <div class="container header-inner">
-      <a class="brand" href="#hero" aria-label="Ir para o início">
-        <span class="brand-mark">L</span>
-        <span class="brand-text">Lara&nbsp;Luíza<span class="brand-sub">Makeup</span></span>
-      </a>
 
-      <nav class="nav" aria-label="Principal">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-        <ul id="menu" class="menu">
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#contato" class="btn btn--small">Agendar</a></li>
-          <li><button id="themeToggle" class="icon-btn" aria-label="Alternar tema claro/escuro">🌓</button></li>
-        </ul>
-      </nav>
+  <nav>
+    <a href="#hero">Início</a>
+    <a href="#jornadas">Jornadas</a>
+    <a href="#protocolos">Protocolos</a>
+    <a href="#time">Time</a>
+    <a href="#faq">FAQ</a>
+    <a href="#localizacao">Local</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" style="text-align:center; padding-top:120px;">
+    <h1>Beleza que respeita sua essência</h1>
+    <p>Protocolos exclusivos e +10.000 atendimentos em Diadema</p>
+    <a href="#agenda" class="btn">Agendar Avaliação</a>
+  </section>
+
+  <!-- POR QUE CASARÃO -->
+  <section id="porque">
+    <h2>Por que escolher o Casarão?</h2>
+    <div class="cards">
+      <div class="card"><h3>Metodologia própria</h3><p>Protocolos nomeados e exclusivos.</p></div>
+      <div class="card"><h3>Time especialista</h3><p>Profissionais certificados e reconhecidos.</p></div>
+      <div class="card"><h3>Cuidado 360°</h3><p>Beleza e saúde integradas.</p></div>
     </div>
-  </header>
+  </section>
 
-  <!-- ===== Conteúdo ===== -->
-  <main id="content">
-    <!-- HERO -->
-    <section id="hero" class="hero" aria-label="Destaque">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="eyebrow">Lourdes · Belo Horizonte</p>
-          <h1>Realço belezas reais através da maquiagem</h1>
-          <p class="lead">Especialista em noivas, beleza natural e pele glow — atendimento com hora marcada.</p>
-          <div class="cta">
-            <!-- Ajuste o link de agendamento conforme necessário -->
-            <a class="btn btn--primary" href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener">Agendar agora</a>
-            <a class="btn btn--ghost" href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener">Instagram</a>
-          </div>
-          <ul class="badges" aria-label="Diferenciais">
-            <li>Especialista em noivas</li>
-            <li>Make social &amp; fast makeup</li>
-            <li>Make artística: <a href="https://www.instagram.com/laraluizaart/" target="_blank" rel="noopener">@laraluizaart</a></li>
-          </ul>
-        </div>
-
-        <!-- Imagem de capa (placeholder embutido) -->
-        <figure class="hero-media">
-          <img
-            src="data:image/svg+xml;utf8,
-            <svg xmlns='http://www.w3.org/2000/svg' width='900' height='1100'>
-              <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-                <stop offset='0%' stop-color='%23f5e9e5'/><stop offset='100%' stop-color='%23f0d6d2'/></linearGradient></defs>
-              <rect width='100%' height='100%' fill='url(%23g)'/>
-              <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='42' fill='%23222222'>Hero placeholder</text>
-            </svg>"
-            alt="Noiva com pele glow e acabamento natural" loading="eager" decoding="async">
-        </figure>
-      </div>
-    </section>
-
-    <!-- SERVIÇOS -->
-    <section id="servicos" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Serviços</h2>
-          <p>Beleza que abraça a sua essência, respeita sua personalidade e valoriza seus traços.</p>
-        </header>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Noiva</h3>
-            <p>Prova + definição de estilo, skincare preparatório e maquiagem de alta durabilidade. Opção de acompanhamento no making of.</p>
-            <ul class="bullets">
-              <li>Pele glow natural</li>
-              <li>Prova de noiva</li>
-              <li>Kit retoque</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Social</h3>
-            <p>Make para eventos, fotos e formaturas. Foco em pele resistente à luz/flash sem perder o viço.</p>
-            <ul class="bullets">
-              <li>Acabamento natural</li>
-              <li>Duração estendida</li>
-              <li>Opção airbrush</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Fast Makeup</h3>
-            <p>Versão leve e rápida para compromissos do dia. Cobertura suave com correções pontuais.</p>
-            <ul class="bullets">
-              <li>Até 40 min</li>
-              <li>Realça traços</li>
-              <li>Look “no-makeup”</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PORTFÓLIO -->
-    <section id="portfolio" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Portfólio</h2>
-          <p>Alguns resultados recentes. Toque para ampliar.</p>
-        </header>
-
-        <ul class="grid" role="list">
-          <!-- Substitua os src abaixo por suas imagens reais (JPG/PNG) -->
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f1d7d2'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 01</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f1d7d2'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>01</text></svg>" alt="Maquiagem 01"></button></li>
-
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f8e9e5'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 02</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f8e9e5'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>02</text></svg>" alt="Maquiagem 02"></button></li>
-
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23eedfdc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 03</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23eedfdc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>03</text></svg>" alt="Maquiagem 03"></button></li>
-
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23e9d0cc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 04</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23e9d0cc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>04</text></svg>" alt="Maquiagem 04"></button></li>
-
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f3e1dd'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 05</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f3e1dd'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>05</text></svg>" alt="Maquiagem 05"></button></li>
-
-          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23ecd8d3'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 06</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23ecd8d3'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>06</text></svg>" alt="Maquiagem 06"></button></li>
-        </ul>
-      </div>
-
-      <!-- Lightbox acessível usando <dialog> -->
-      <dialog id="lightbox" aria-label="Visualização da imagem">
-        <button class="lb-close" aria-label="Fechar">×</button>
-        <img id="lightboxImg" src="" alt="">
-      </dialog>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre" class="section section--alt">
-      <div class="container about">
-        <div>
-          <h2>Sobre</h2>
-          <p>Oi! Eu sou a <strong>Lara Luíza</strong>, maquiadora em BH. Minha proposta é potencializar a beleza real com técnicas que valorizam textura de pele e luminosidade natural, com conforto e durabilidade.</p>
-          <ul class="about-points">
-            <li>Atendimento com hora marcada</li>
-            <li>Estúdio em Lourdes</li>
-            <li>Higiene e biossegurança</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section id="depoimentos" class="section">
-      <div class="container">
-        <header class="section-head">
-          <h2>Depoimentos</h2>
-        </header>
-        <div class="testimonials">
-          <blockquote>
-            <p>“Pele perfeita e leve o evento inteiro. Amei o glow!”</p>
-            <footer>— Camila R.</footer>
-          </blockquote>
-          <blockquote>
-            <p>“Me senti eu mesma, só que pronta pra casar.”</p>
-            <footer>— Marina A. (noiva)</footer>
-          </blockquote>
-          <blockquote>
-            <p>“Serviço pontual e impecável. Recomendo de olhos fechados.”</p>
-            <footer>— Júlia M.</footer>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section section--alt">
-      <div class="container contact">
-        <header class="section-head">
-          <h2>Agende seu horário</h2>
-          <p>Envie suas preferências de data/horário e o tipo de make. Retorno rápido pelo WhatsApp.</p>
-        </header>
-
-        <div class="contact-cta">
-          <a class="btn btn--primary btn--xl" href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
-          <a class="btn btn--ghost" href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener">Falar no Instagram</a>
-        </div>
-
-        <address class="address">
-          <p><strong>Estúdio:</strong> Lourdes – Belo Horizonte, MG</p>
-          <p><strong>E-mail:</strong> <a href="mailto:contato@laraluizamakeup.com.br">contato@laraluizamakeup.com.br</a></p>
-        </address>
-      </div>
-    </section>
-  </main>
-
-  <!-- Rodapé -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="year"></span> Lara Luíza Makeup — Todos os direitos reservados.</p>
-      <ul class="social" role="list">
-        <li><a href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
-        <li><a href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a></li>
-      </ul>
+  <!-- JORNADAS -->
+  <section id="jornadas">
+    <h2>Jornadas de Resultado</h2>
+    <div class="cards">
+      <div class="card"><h3>Pele Saudável</h3><p>Limpeza de pele avançada e manutenção.</p></div>
+      <div class="card"><h3>Cabelo com Assinatura</h3><p>Diagnóstico, cor e corte exclusivos.</p></div>
+      <div class="card"><h3>Sobrancelhas Harmônicas</h3><p>Design, henna e manutenção express.</p></div>
+      <div class="card"><h3>Ritual Completo</h3><p>Combina pele, cabelo e spa urbano.</p></div>
     </div>
+  </section>
+
+  <!-- PROTOCOLOS -->
+  <section id="protocolos">
+    <h2>Protocolos Estrela</h2>
+    <div class="cards">
+      <div class="card"><h3>Glow 90’</h3><p>Limpeza profunda + LED calmante.</p></div>
+      <div class="card"><h3>Color Design 3D</h3><p>Nuance e brilho personalizados.</p></div>
+      <div class="card"><h3>Brow Harmony</h3><p>Design + henna em 30 minutos.</p></div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="oferta" style="text-align:center;">
+    <h2>Primeira Visita</h2>
+    <p>Avaliação guiada + plano de 90 dias. Bônus: guia personalizado.</p>
+    <a href="#agenda" class="btn">Agendar Agora</a>
+  </section>
+
+  <!-- TIME -->
+  <section id="time">
+    <h2>Nosso Time</h2>
+    <div class="cards">
+      <div class="card"><h3>Ana</h3><p>Especialista em pele</p></div>
+      <div class="card"><h3>Marcos</h3><p>Hair Designer</p></div>
+      <div class="card"><h3>Luiza</h3><p>Design de Sobrancelhas</p></div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="agenda" style="text-align:center;">
+    <h2>Agende seu horário</h2>
+    <a href="https://wa.me/5511987219029" class="btn">WhatsApp</a>
+    <a href="tel:+5511987219029" class="btn">Ligar</a>
+    <a href="#" class="btn">Agenda Online</a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Perguntas Frequentes</h2>
+    <details class="card"><summary>Limpeza de pele dói?</summary><p>Não, usamos técnicas suaves com LED calmante.</p></details>
+    <details class="card"><summary>Quanto dura a coloração?</summary><p>6 a 8 semanas, dependendo da rotina.</p></details>
+  </section>
+
+  <!-- LOCAL -->
+  <section id="localizacao" style="text-align:center;">
+    <h2>Onde Estamos</h2>
+    <p>Rua Itaguaré, 85 – Centro, Diadema/SP</p>
+    <iframe src="https://maps.google.com/maps?q=Rua%20Itaguare%2085%20Diadema&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="250" style="border:0; border-radius:var(--radius);"></iframe>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Casarão da Beleza & Saúde • Todos os direitos reservados</p>
   </footer>
 
-  <!-- JSON-LD: negócio local / profissional -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MakeupArtist",
-      "name": "Lara Luíza Makeup",
-      "image": "https://example.com/og-cover.jpg",
-      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "streetAddress": "Lourdes" },
-      "url": "https://example.com",
-      "sameAs": ["https://www.instagram.com/laraluizamakeup_/"],
-      "areaServed": "Belo Horizonte",
-      "priceRange": "$$"
-    }
-  </script>
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/5511987219029" class="whatsapp">💬</a>
 
-  <!-- ===== JS inline ===== -->
-  <script>
-    // Toggle de tema claro/escuro (persiste no localStorage)
-    (function theme(){
-      const btn = document.getElementById('themeToggle');
-      if(!btn) return;
-      const KEY = 'theme-preference';
-      const apply = (mode) => { document.documentElement.dataset.theme = mode; };
-      const saved = localStorage.getItem(KEY);
-      if(saved) apply(saved);
-      btn.addEventListener('click', () => {
-        const current = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        const next = current === 'dark' ? 'light' : 'dark';
-        localStorage.setItem(KEY, next);
-        apply(next);
-      });
-    })();
-
-    // Ano dinâmico no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menu mobile acessível
-    (function nav(){
-      const toggle = document.querySelector('.nav-toggle');
-      const menu = document.getElementById('menu');
-      if(!toggle || !menu) return;
-      toggle.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-    })();
-
-    // Lightbox com <dialog>
-    (function lightbox(){
-      const dlg = document.getElementById('lightbox');
-      const img = document.getElementById('lightboxImg');
-      const closeBtn = dlg.querySelector('.lb-close');
-
-      // abre ao clicar nas thumbs
-      document.querySelectorAll('.thumb').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const src = btn.getAttribute('data-full');
-          img.src = src;
-          img.alt = btn.querySelector('img').alt;
-          if (typeof dlg.showModal === 'function') dlg.showModal();
-          else dlg.setAttribute('open', '');
-        });
-      });
-
-      // fechar
-      const close = () => dlg.close ? dlg.close() : dlg.removeAttribute('open');
-      closeBtn.addEventListener('click', close);
-      dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
-      window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && (dlg.open || dlg.hasAttribute('open'))) close(); });
-    })();
-  </script>
 </body>
 </html>

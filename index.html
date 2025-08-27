@@ -2,453 +2,228 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Amanda Rodriguez Beauty | Studio LUMIK — Noivas, Madrinhas, Debutantes</title>
-  <meta name="description" content="Beleza editorial e calma inevitável para noivas, madrinhas e debutantes em Diadema-SP. Agende seu momento com o Studio LUMIK." />
-  <meta name="theme-color" content="#1E223A" />
-  <meta name="color-scheme" content="light" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lara Luíza • Makeup | Noivas & Social em BH</title>
+  <meta name="description" content="Maquiadora em Lourdes - Belo Horizonte. Especialista em noivas, beleza natural e pele glow. Agende seu horário." />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Amanda Rodriguez Beauty — Studio LUMIK" />
-  <meta property="og:description" content="Transformamos instantes únicos em memórias eternas. Agende seu momento." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="img/og.jpg" /> <!-- TODO: substituir -->
-  <meta property="og:url" content="https://seu-dominio.com/" /> <!-- TODO -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Preload opcional do hero (troque o caminho) -->
-  <link rel="preload" as="image" href="img/hero.webp" imagesrcset="img/hero.webp 1x" fetchpriority="high">
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 
-  <style>
-    /* ====== Reset/Setup minimalista ====== */
-    *,*::before,*::after{box-sizing:border-box}
-    html:focus-within{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";color:#111;line-height:1.55;background:#F7F4F3}
-    img,svg,video{max-width:100%;display:block}
-    a{color:inherit}
-    :root{
-      --navy:#1E223A;        /* primária */
-      --rose:#D9A3A7;        /* acento */
-      --cream:#F7F4F3;       /* fundo claro */
-      --gray:#D9D7D5;        /* neutro */
-      --brown:#3B2A26;       /* detalhe quente */
-      --text:#0E0F12;
-      --max:1120px;          /* largura conteudo */
-      --radius:14px;
-      --shadow:0 6px 18px rgba(0,0,0,.06);
-      --gap:24px;
-    }
-    .wrap{max-width:var(--max);margin-inline:auto;padding-inline:20px}
-    .grid{display:grid;gap:var(--gap)}
-    .btn{appearance:none;border:0;border-radius:999px;padding:.9rem 1.25rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
-    .btn.primary{background:var(--rose);color:#221F21}
-    .btn.secondary{background:#fff;border:1px solid var(--gray);color:var(--navy)}
-    .btn:focus-visible{outline:3px solid #000;outline-offset:2px}
+  <!-- Favicon simples (trocar à vontade) -->
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%23f5e9e5"/><text x="50%" y="54%" text-anchor="middle" font-family="serif" font-size="28" fill="%23222222">L</text></svg>'>
 
-    /* ====== Cabeçalho ====== */
-    .skip a{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip a:focus{left:16px;top:16px;width:auto;height:auto;background:#fff;padding:.5rem .75rem;border-radius:8px;z-index:1000}
-    header{position:sticky;top:0;z-index:999;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid rgba(0,0,0,.06)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
-    .brand{display:flex;align-items:center;gap:.65rem}
-    .logo{width:36px;height:36px;border-radius:50%;background:var(--navy);display:grid;place-items:center;color:#fff;font-size:.9rem;font-weight:700;letter-spacing:.5px}
-    .brand b{font-family: "Playfair Display", Georgia, serif; font-weight:700}
-    nav ul{list-style:none;display:flex;gap:1.1rem;margin:0;padding:0}
-    nav a{font-weight:600;text-decoration:none}
-    .cta-header{display:none}
-    .menu-btn{display:none}
-
-    /* ====== Hero ====== */
-    .hero{background:linear-gradient(180deg,#ffffff, #F7F4F3 60%);color:var(--navy)}
-    .hero .wrap{padding-block:64px}
-    .hero-grid{grid-template-columns:1.15fr .85fr;align-items:center}
-    h1{font-family:"Playfair Display", Georgia, serif; font-size:clamp(2.2rem, 3.4vw, 3.4rem);line-height:1.1;margin:.25rem 0 .75rem}
-    .lead{font-size:clamp(1.05rem,1.4vw,1.15rem);opacity:.9;margin-bottom:1.2rem}
-    .hero-card{background:#fff;border:1px solid var(--gray);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
-    .hero figure{border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-    .badges{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}
-    .badge{background:#fff;border:1px solid var(--gray);border-radius:999px;padding:.35rem .65rem;font-size:.85rem}
-
-    /* ====== Seções genéricas ====== */
-    section{padding:64px 0}
-    section.alt{background:#fff}
-    section.dark{background:var(--navy);color:#fff}
-    h2{font-family:"Playfair Display", Georgia, serif;font-size:clamp(1.6rem,2.2vw,2.2rem);margin:0 0 .5rem}
-    p.section-lead{opacity:.9;max-width:60ch}
-
-    /* ====== Pilares ====== */
-    .pillars{grid-template-columns:repeat(3,1fr)}
-    .card{background:#fff;border:1px solid var(--gray);border-radius:16px;padding:1rem;box-shadow:var(--shadow)}
-    .card h3{margin:.25rem 0 .25rem;font-size:1.1rem}
-
-    /* ====== Prova social ====== */
-    .proof{display:flex;gap:var(--gap);align-items:center;flex-wrap:wrap}
-    .proof .quotes{display:grid;gap:10px}
-    .quote{background:#fff;border-left:4px solid var(--rose);padding:.75rem .9rem;border-radius:10px;border-top-right-radius:16px;border-bottom-right-radius:16px}
-    .stars{display:inline-flex;gap:2px;vertical-align:middle}
-
-    /* ====== Serviços ====== */
-    .services{grid-template-columns:repeat(4,1fr)}
-    .service .thumb{border-radius:14px;overflow:hidden;aspect-ratio:4/5;margin-bottom:.6rem;background:#EEE}
-
-    /* ====== Portfólio ====== */
-    .portfolio{grid-template-columns:repeat(3,1fr)}
-    .portfolio figure{border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:#EEE}
-
-    /* ====== Processo ====== */
-    .process{grid-template-columns:repeat(3,1fr)}
-    .step{background:#fff;border:1px solid var(--gray);border-radius:14px;padding:1rem}
-    .step b{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;min-width:32px;height:32px;display:grid;place-items:center;margin-bottom:.5rem}
-
-    /* ====== Depoimentos vídeos ====== */
-    .testis{grid-template-columns:repeat(2,1fr)}
-    .testi{background:#fff;border:1px solid var(--gray);border-radius:16px;padding:1rem}
-    .testi .media{aspect-ratio:16/9;background:#000;border-radius:12px;margin-bottom:.5rem;overflow:hidden}
-
-    /* ====== Sobre / Manifesto ====== */
-    .about{grid-template-columns:1.1fr .9fr;align-items:center}
-    .about figure{border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-
-    /* ====== FAQ ====== */
-    .faq{max-width:900px}
-    details{background:#fff;border:1px solid var(--gray);border-radius:12px;padding:.65rem 1rem}
-    details+details{margin-top:.6rem}
-    summary{cursor:pointer;font-weight:700}
-    details[open]{border-color:var(--navy)}
-
-    /* ====== CTA Final / Contato ====== */
-    .cta-final .panel{background:#fff;color:var(--navy);border-radius:16px;padding:1rem;display:grid;gap:10px;box-shadow:var(--shadow)}
-    .contact-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
-    .contact-list a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none}
-    .mini{font-size:.92rem;opacity:.8}
-
-    /* ====== Rodapé ====== */
-    footer{padding:28px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.95rem}
-    .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-    .foot small{opacity:.7}
-
-    /* ====== Responsividade ====== */
-    @media (max-width: 960px){
-      .hero-grid,
-      .about{grid-template-columns:1fr}
-      .services{grid-template-columns:repeat(2,1fr)}
-      .portfolio{grid-template-columns:repeat(2,1fr)}
-      .process{grid-template-columns:1fr}
-      .pillars{grid-template-columns:1fr}
-      .testis{grid-template-columns:1fr}
-      .cta-header{display:inline-flex}
-      nav ul{position:fixed;inset:64px 0 auto 0;background:#fff;border-bottom:1px solid #eee;padding:1rem 20px;display:none;flex-direction:column}
-      .menu-btn{display:inline-flex}
-      header.open nav ul{display:flex}
-    }
-
-    /* ====== Motion saudável ====== */
-    @media (prefers-reduced-motion:no-preference){
-      .fade{opacity:0;transform:translateY(8px);transition:.5s ease}
-      .fade.in{opacity:1;transform:none}
-      a, .btn{transition:transform .12s ease, background-color .12s ease, color .12s ease}
-      .btn:hover{transform:translateY(-1px)}
-    }
-  </style>
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lara Luíza • Makeup | Noivas & Social em BH">
+  <meta property="og:description" content="Beleza natural, pele glow e acabamento profissional. Agende seu horário.">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta name="color-scheme" content="light dark">
 </head>
-
 <body>
-  <!-- A11y: link pular para conteúdo -->
-  <div class="skip"><a href="#conteudo">Pular para o conteúdo</a></div>
+  <!-- Header -->
+  <header class="site-header" aria-label="Cabeçalho do site">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Ir para o início">
+        <span class="brand-mark">L</span>
+        <span class="brand-text">Lara&nbsp;Luíza<span class="brand-sub">Makeup</span></span>
+      </a>
 
-  <!-- ====== Header ====== -->
-  <header id="topo">
-    <div class="wrap nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">AR</div>
-        <div>
-          <b>Studio LUMIK</b><div class="mini">Amanda Rodriguez Beauty</div>
-        </div>
-      </div>
-      <nav aria-label="Primária">
-        <button class="btn secondary menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
-        <ul id="menu">
+      <nav class="nav" aria-label="Principal">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+        <ul id="menu" class="menu">
           <li><a href="#servicos">Serviços</a></li>
           <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#processo">Processo</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato" class="btn btn--small">Agendar</a></li>
+          <li><button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button></li>
         </ul>
       </nav>
-      <a class="btn primary cta-header" href="https://wa.me/5500000000000?text=Oi%20Amanda,%20quero%20agendar%20meu%20momento" target="_blank" rel="noopener">Agendar</a>
     </div>
   </header>
 
-  <main id="conteudo">
-
-    <!-- ====== DOBRA 1 — HERO INEVITÁVEL ====== -->
-    <section class="hero">
-      <div class="wrap grid hero-grid">
-        <div class="fade">
-          <h1>Beleza editorial, calma inevitável.</h1>
-          <p class="lead">O dia mais importante da sua vida merece uma beleza que atravessa o tempo. Noivas, madrinhas e debutantes com atendimento realmente personalizado — em <b>Diadema-SP</b> e região.</p>
-          <div class="badges" aria-label="Diferenciais">
-            <span class="badge">Exclusivo</span>
-            <span class="badge">Atendimento VIP</span>
-            <span class="badge">Prova personalizada</span>
+  <main id="content">
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-label="Destaque">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow">Lourdes · Belo Horizonte</p>
+          <h1>Realço belezas reais através da maquiagem</h1>
+          <p class="lead">Especialista em noivas, beleza natural e pele glow — atendimento com hora marcada.</p>
+          <div class="cta">
+            <a class="btn btn--primary" href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener">Agendar agora</a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener">Instagram</a>
           </div>
-          <div class="hero-card">
-            <p style="margin:.25rem 0 .75rem">Agenda limitada — reserve com antecedência.</p>
-            <a class="btn primary" href="https://wa.me/5500000000000?text=Oi%20Amanda,%20quero%20agendar%20meu%20momento" target="_blank" rel="noopener" aria-label="Agendar no WhatsApp">Agendar meu momento</a>
-          </div>
-        </div>
-        <figure class="fade">
-          <img src="img/hero.webp" alt="Noiva com maquiagem impecável em fundo editorial" width="1000" height="1200" decoding="async" fetchpriority="high" />
-        </figure>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 2 — VALOR (3 PILARES) ====== -->
-    <section class="alt">
-      <div class="wrap">
-        <h2>Por que o Studio LUMIK</h2>
-        <p class="section-lead">Três pilares que guiam cada decisão de beleza: <b>exclusividade</b>, <b>calma</b> e <b>editorial</b>.</p>
-        <div class="grid pillars">
-          <div class="card fade">
-            <h3>Exclusividade</h3>
-            <p>Pacotes sob medida. Você não é “mais uma agenda”: é a protagonista.</p>
-          </div>
-          <div class="card fade">
-            <h3>Calma</h3>
-            <p>Ritual sem pressa. Você respira; nós cuidamos do resto.</p>
-          </div>
-          <div class="card fade">
-            <h3>Editorial</h3>
-            <p>Acabamento digno de capa, sem perder a sua naturalidade.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 3 — PROVA SOCIAL ====== -->
-    <section>
-      <div class="wrap">
-        <h2>Mais de 200 histórias reais</h2>
-        <p class="section-lead">Resultados que falam por si. Depoimentos e avaliações de clientes que viveram o momento.</p>
-        <div class="proof">
-          <div class="quotes">
-            <div class="quote fade">“Eu chorei quando me vi no espelho. Era eu — só que eterna.” — <b>Bruna, noiva</b> <span class="stars" aria-label="5 de 5">★★★★★</span></div>
-            <div class="quote fade">“Zero correria e tudo perfeito. Minha mãe disse que nunca me viu tão confiante.” — <b>Larissa, debutante</b> <span class="stars">★★★★★</span></div>
-          </div>
-          <img loading="lazy" src="img/prova1.webp" alt="Colagem de clientes antes e depois" width="640" height="420" class="fade" />
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 4 — SERVIÇOS COMO NARRATIVA ====== -->
-    <section id="servicos" class="alt">
-      <div class="wrap">
-        <h2>Serviços e Pacotes</h2>
-        <p class="section-lead">Escolha o caminho que combina com seu momento.</p>
-        <div class="grid services">
-          <!-- Service Card -->
-          <article class="service card fade">
-            <div class="thumb"><img loading="lazy" src="img/serv-noiva.webp" alt="Maquiagem de noiva natural e elegante" width="800" height="1000"></div>
-            <h3>Noivas</h3>
-            <p>Beleza que atravessa o dia — e a foto.</p>
-          </article>
-          <article class="service card fade">
-            <div class="thumb"><img loading="lazy" src="img/serv-madrinha.webp" alt="Madrinha com acabamento iluminado" width="800" height="1000"></div>
-            <h3>Madrinhas</h3>
-            <p>Harmonia com o evento, sem perder sua assinatura.</p>
-          </article>
-          <article class="service card fade">
-            <div class="thumb"><img loading="lazy" src="img/serv-debutante.webp" alt="Debutante com look jovem e sofisticado" width="800" height="1000"></div>
-            <h3>Debutantes</h3>
-            <p>Brilho jovem com acabamento premium.</p>
-          </article>
-          <article class="service card fade">
-            <div class="thumb"><img loading="lazy" src="img/serv-social.webp" alt="Maquiagem social" width="800" height="1000"></div>
-            <h3>Social</h3>
-            <p>De jantares a ensaios — sempre pronta.</p>
-          </article>
-        </div>
-        <div style="margin-top:16px">
-          <a class="btn primary" href="https://wa.me/5500000000000?text=Oi%20Amanda,%20quero%20conhecer%20os%20pacotes" target="_blank" rel="noopener">Ver pacotes</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 5 — PORTFÓLIO COM RESPIRAÇÃO ====== -->
-    <section id="portfolio">
-      <div class="wrap">
-        <h2>Portfólio</h2>
-        <p class="section-lead">Curadoria de momentos — menos é mais forte.</p>
-        <div class="grid portfolio">
-          <figure class="fade"><img loading="lazy" src="img/p1.webp" alt="Close de pele impecável" width="900" height="1125"></figure>
-          <figure class="fade"><img loading="lazy" src="img/p2.webp" alt="Olhos esfumados elegantes" width="900" height="1125"></figure>
-          <figure class="fade"><img loading="lazy" src="img/p3.webp" alt="Look clássico e atemporal" width="900" height="1125"></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 6 — PROCESSO SIMPLES (3 PASSOS) ====== -->
-    <section id="processo" class="alt">
-      <div class="wrap">
-        <h2>Como funciona</h2>
-        <div class="grid process">
-          <div class="step fade"><b>1</b><h3>Contato</h3><p>Você envia sua data e referências.</p></div>
-          <div class="step fade"><b>2</b><h3>Prova</h3><p>Testamos e alinhamos cada detalhe.</p></div>
-          <div class="step fade"><b>3</b><h3>O dia</h3><p>Você chega e só vive — nós cuidamos de tudo.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 7 — DEPOIMENTOS (VÍDEO/QUOTE) ====== -->
-    <section id="depoimentos">
-      <div class="wrap">
-        <h2>Depoimentos</h2>
-        <div class="grid testis">
-          <article class="testi fade">
-            <div class="media">
-              <!-- TODO: inserir vídeo real -->
-              <video controls preload="metadata" width="100%" height="100%" poster="img/poster1.jpg">
-                <source src="media/depo1.webm" type="video/webm">
-                <source src="media/depo1.mp4" type="video/mp4">
-                Seu navegador não suporta vídeo.
-              </video>
-            </div>
-            <p>“Fiquei serena o tempo todo. A maquiagem durou até o último abraço.”</p>
-            <div class="stars">★★★★★</div>
-          </article>
-
-          <article class="testi fade">
-            <div class="media">
-              <video controls preload="metadata" width="100%" height="100%" poster="img/poster2.jpg">
-                <source src="media/depo2.webm" type="video/webm">
-                <source src="media/depo2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <p>“A prova me deu segurança. No grande dia, foi inevitável: me senti eu — e melhor.”</p>
-            <div class="stars">★★★★★</div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 8 — MANIFESTO / SOBRE ====== -->
-    <section id="sobre" class="alt">
-      <div class="wrap grid about">
-        <div class="fade">
-          <h2>Manifesto</h2>
-          <p class="section-lead"><b>Eu não faço maquiagem para impressionar.</b> Eu faço para revelar quem você já é. Beleza que respeita seu rosto, sua história e sua tranquilidade.</p>
-          <p>Sou Amanda Rodriguez, fundadora do <b>Studio LUMIK</b>. Minha assinatura é <i>beleza editorial com calma inevitável</i>. Trabalho com agenda limitada para dar atenção total a cada cliente.</p>
-        </div>
-        <figure class="fade">
-          <!-- TODO: trocar pela sua foto editorial -->
-          <img loading="lazy" src="img/amanda.webp" alt="Amanda Rodriguez segurando pincel, em retrato editorial" width="1000" height="1200">
-        </figure>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 9 — FAQ ====== -->
-    <section id="faq">
-      <div class="wrap faq">
-        <h2>Perguntas frequentes</h2>
-
-        <details class="fade">
-          <summary>Você atende fora de Diadema?</summary>
-          <p>Sim. Atendo Grande ABC e São Paulo mediante taxa de deslocamento.</p>
-        </details>
-
-        <details class="fade">
-          <summary>Como reservo a data?</summary>
-          <p>Chame no WhatsApp e confirme disponibilidade. A reserva é efetivada com sinal.</p>
-        </details>
-
-        <details class="fade">
-          <summary>Faz penteado também?</summary>
-          <p>Sim. Pacotes incluem maquiagem e penteado (quando necessário).</p>
-        </details>
-
-        <details class="fade">
-          <summary>Quanto tempo leva a prova?</summary>
-          <p>Em média 1h30 a 2h, para testarmos acabamento, pele e olho com calma.</p>
-        </details>
-      </div>
-    </section>
-
-    <!-- ====== DOBRA 10 — CTA FINAL / CONTATO ====== -->
-    <section class="dark cta-final">
-      <div class="wrap grid" style="grid-template-columns:1.05fr .95fr;align-items:center">
-        <div class="panel fade">
-          <h2>O seu momento começa aqui.</h2>
-          <p>Agenda limitada. Garanta sua data com antecedência.</p>
-          <a class="btn primary" href="https://wa.me/5500000000000?text=Oi%20Amanda,%20quero%20agendar%20meu%20momento" target="_blank" rel="noopener">Agendar agora no WhatsApp</a>
-          <ul class="contact-list">
-            <li><a href="mailto:contato@studiolumik.com" aria-label="Enviar e-mail">📧 contato@studiolumik.com</a></li>
-            <li><a href="https://www.instagram.com/amandarodriguezbeauty" target="_blank" rel="noopener" aria-label="Abrir Instagram">@amandarodriguezbeauty</a></li>
-            <li><span>📍 Diadema — SP</span></li>
+          <ul class="badges" aria-label="Diferenciais">
+            <li>Especialista em noivas</li>
+            <li>Make social &amp; fast makeup</li>
+            <li>Make artística: <a href="https://www.instagram.com/laraluizaart/" target="_blank" rel="noopener">@laraluizaart</a></li>
           </ul>
         </div>
-        <figure class="fade"><img loading="lazy" src="img/cta.webp" alt="Detalhe do making-of no Studio LUMIK" width="1000" height="800" style="border-radius:16px"></figure>
+        <figure class="hero-media">
+          <img src="assets/hero.jpg" alt="Noiva com pele glow e acabamento natural" loading="eager" decoding="async">
+        </figure>
       </div>
     </section>
 
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Serviços</h2>
+          <p>Beleza que abraça a sua essência, respeita sua personalidade e valoriza seus traços.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <h3>Noiva</h3>
+            <p>Prova + definição de estilo, skincare preparatório e maquiagem de alta durabilidade. Opção de acompanhamento no making of.</p>
+            <ul class="bullets">
+              <li>Pele glow natural</li>
+              <li>Prova de noiva</li>
+              <li>Kit retoque</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Social</h3>
+            <p>Make para eventos, fotos e formaturas. Foco em pele resistente à luz/flash sem perder o viço.</p>
+            <ul class="bullets">
+              <li>Acabamento natural</li>
+              <li>Duração estendida</li>
+              <li>Opção airbrush</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Fast Makeup</h3>
+            <p>Versão leve e rápida para compromissos do dia. Cobertura suave com correções pontuais.</p>
+            <ul class="bullets">
+              <li>Até 40 min</li>
+              <li>Realça traços</li>
+              <li>Look “no-makeup”</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Portfólio</h2>
+          <p>Alguns resultados recentes. Toque para ampliar.</p>
+        </header>
+
+        <ul class="grid" role="list">
+          <!-- Cada item abre o <dialog> como lightbox -->
+          <li><button class="thumb" data-full="assets/portfolio/01.jpg"><img src="assets/portfolio/01.jpg" alt="Maquiagem 01"></button></li>
+          <li><button class="thumb" data-full="assets/portfolio/02.jpg"><img src="assets/portfolio/02.jpg" alt="Maquiagem 02"></button></li>
+          <li><button class="thumb" data-full="assets/portfolio/03.jpg"><img src="assets/portfolio/03.jpg" alt="Maquiagem 03"></button></li>
+          <li><button class="thumb" data-full="assets/portfolio/04.jpg"><img src="assets/portfolio/04.jpg" alt="Maquiagem 04"></button></li>
+          <li><button class="thumb" data-full="assets/portfolio/05.jpg"><img src="assets/portfolio/05.jpg" alt="Maquiagem 05"></button></li>
+          <li><button class="thumb" data-full="assets/portfolio/06.jpg"><img src="assets/portfolio/06.jpg" alt="Maquiagem 06"></button></li>
+        </ul>
+      </div>
+
+      <!-- Lightbox acessível usando <dialog> -->
+      <dialog id="lightbox" aria-label="Visualização da imagem">
+        <button class="lb-close" aria-label="Fechar">×</button>
+        <img id="lightboxImg" src="" alt="">
+      </dialog>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section section--alt">
+      <div class="container about">
+        <div>
+          <h2>Sobre</h2>
+          <p>Oi! Eu sou a <strong>Lara Luíza</strong>, maquiadora em BH. Minha proposta é potencializar a beleza real com técnicas que valorizam textura de pele e luminosidade natural, com conforto e durabilidade.</p>
+          <ul class="about-points">
+            <li>Atendimento com hora marcada</li>
+            <li>Espaço em Lourdes</li>
+            <li>Higiene e biossegurança</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="section">
+      <div class="container">
+        <header class="section-head">
+          <h2>Depoimentos</h2>
+        </header>
+        <div class="testimonials">
+          <blockquote>
+            <p>“Pele perfeita e leve o evento inteiro. Amei o glow!”</p>
+            <footer>— Camila R.</footer>
+          </blockquote>
+          <blockquote>
+            <p>“Me senti eu mesma, só que pronta pra casar.”</p>
+            <footer>— Marina A. (noiva)</footer>
+          </blockquote>
+          <blockquote>
+            <p>“Serviço pontual e impecável. Recomendo de olhos fechados.”</p>
+            <footer>— Júlia M.</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section section--alt">
+      <div class="container contact">
+        <header class="section-head">
+          <h2>Agende seu horário</h2>
+          <p>Preferências de data/horário e tipo de make. Retorno rápido pelo WhatsApp.</p>
+        </header>
+
+        <div class="contact-cta">
+          <a class="btn btn--primary btn--xl" href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener">Falar no Instagram</a>
+        </div>
+
+        <address class="address">
+          <p><strong>Estúdio:</strong> Lourdes – Belo Horizonte, MG</p>
+          <p><strong>E-mail:</strong> <a href="mailto:contato@laraluizamakeup.com.br">contato@laraluizamakeup.com.br</a></p>
+        </address>
+      </div>
+    </section>
   </main>
 
-  <!-- ====== Rodapé ====== -->
-  <footer>
-    <div class="wrap foot">
-      <div>© <span id="y"></span> Studio LUMIK — Amanda Rodriguez Beauty</div>
-      <small>Beleza editorial com calma inevitável.</small>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Lara Luíza Makeup — Todos os direitos reservados.</p>
+      <ul class="social" role="list">
+        <li><a href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a></li>
+        <li><a href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a></li>
+      </ul>
     </div>
   </footer>
 
-  <!-- ====== JSON-LD LocalBusiness (SEO) ====== -->
+  <!-- JSON-LD: negócio local / profissional -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Studio LUMIK — Amanda Rodriguez Beauty",
-    "image": "https://seu-dominio.com/img/og.jpg",
-    "url": "https://seu-dominio.com/",
-    "telephone": "+55-00-0000-0000",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Diadema",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
+    "@type": "MakeupArtist",
+    "name": "Lara Luíza Makeup",
+    "image": "assets/og-cover.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "streetAddress": "Lourdes" },
+    "url": "https://example.com",
     "sameAs": [
-      "https://www.instagram.com/amandarodriguezbeauty"
+      "https://www.instagram.com/laraluizamakeup_/"
     ],
+    "areaServed": "Belo Horizonte",
     "priceRange": "$$"
   }
   </script>
 
-  <!-- ====== JS mínimo: menu mobile + animação suave ====== -->
-  <script>
-    // ano no rodapé
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // menu mobile acessível
-    const header = document.querySelector('header');
-    const btn = document.querySelector('.menu-btn');
-    const menu = document.getElementById('menu');
-    if(btn){
-      btn.addEventListener('click', ()=>{
-        const open = header.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if(open) menu.querySelector('a')?.focus();
-      });
-    }
-
-    // animação de entrada (respeita prefers-reduced-motion)
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(!prefersReduced){
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-      }, {threshold: .12});
-      document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
-    } else {
-      document.querySelectorAll('.fade').forEach(el=>el.classList.add('in'));
-    }
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>

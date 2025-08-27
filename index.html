@@ -5,28 +5,116 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lara Luíza • Makeup | Noivas & Social em BH</title>
   <meta name="description" content="Maquiadora em Lourdes - Belo Horizonte. Especialista em noivas, beleza natural e pele glow. Agende seu horário." />
+  <meta name="color-scheme" content="light dark" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Favicon simples (trocar à vontade) -->
-  <link rel="icon" type="image/svg+xml"
-    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%23f5e9e5"/><text x="50%" y="54%" text-anchor="middle" font-family="serif" font-size="28" fill="%23222222">L</text></svg>'>
-
-  <!-- OG -->
+  <!-- Open Graph básico -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lara Luíza • Makeup | Noivas & Social em BH">
   <meta property="og:description" content="Beleza natural, pele glow e acabamento profissional. Agende seu horário.">
-  <meta property="og:image" content="assets/og-cover.jpg">
-  <meta name="color-scheme" content="light dark">
+  <meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'><rect width='100%' height='100%' fill='%23f5e9e5'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='64' fill='%23222222'>Lara Luíza • Makeup</text></svg>">
+
+  <!-- Favicon inline simples -->
+  <link rel="icon" type="image/svg+xml"
+    href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="%23f5e9e5"/><text x="50%" y="54%" text-anchor="middle" font-family="serif" font-size="28" fill="%23222222">L</text></svg>'>
+
+  <!-- ===== CSS inline ===== -->
+  <style>
+    :root{
+      --bg:#ffffff; --fg:#1f1f1f; --muted:#6b6b6b;
+      --brand:#d9a39a; --brand-ink:#2a1f1e; --card:#f7f4f3; --ring:rgba(0,0,0,.08);
+      --radius:14px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{ --bg:#0f0f10; --fg:#efefef; --muted:#b4b4b4; --card:#1a1a1b; --ring:rgba(255,255,255,.12); }
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--fg); background:var(--bg); line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    .container{width:min(1080px,92%); margin:0 auto}
+
+    /* Header */
+    .site-header{position:sticky; top:0; z-index:50; background:color-mix(in oklab, var(--bg) 96%, transparent); border-bottom:1px solid var(--ring); backdrop-filter: blur(8px);}
+    .header-inner{display:flex; align-items:center; justify-content:space-between; min-height:64px; gap:16px}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
+    .brand-mark{width:36px;height:36px;border-radius:999px;display:grid;place-items:center;font-weight:700;background:var(--brand);color:var(--brand-ink)}
+    .brand-text{font-family: ui-serif, Georgia, "Times New Roman", serif; font-size:1.1rem; letter-spacing:.2px}
+    .brand-sub{margin-left:6px; font-size:.9rem; opacity:.7}
+    .nav .menu{display:flex; gap:14px; align-items:center; list-style:none; margin:0; padding:0}
+    .nav a{text-decoration:none; color:inherit; padding:8px 10px; border-radius:8px}
+    .nav a:hover{background:var(--ring)}
+    .nav-toggle{display:none}
+    .icon-btn{background:transparent; border:1px solid var(--ring); padding:6px 10px; border-radius:8px; cursor:pointer}
+
+    .btn{display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none; font-weight:600; border:1px solid var(--ring)}
+    .btn--small{padding:8px 12px}
+    .btn--xl{padding:16px 22px; font-size:1.05rem}
+    .btn--primary{background:var(--brand); color:var(--brand-ink); border-color:transparent}
+    .btn--ghost{background:transparent}
+
+    .eyebrow{text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-size:.8rem}
+    .lead{font-size:1.15rem; color:var(--muted)}
+
+    /* Hero */
+    .hero{padding:48px 0 24px}
+    .hero-inner{display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:28px}
+    .hero-media img{width:100%; height:auto; border-radius:18px; box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .badges{display:flex; gap:10px; padding:0; margin:14px 0 0; list-style:none; flex-wrap:wrap}
+    .badges li{background:var(--card); padding:8px 12px; border-radius:999px; border:1px solid var(--ring)}
+
+    /* Sections */
+    .section{padding:72px 0}
+    .section--alt{background:var(--card)}
+    .section-head h2{margin:0 0 6px; font-family: ui-serif, Georgia, "Times New Roman", serif; font-size:clamp(1.6rem,1.2rem + 1.5vw,2.2rem)}
+    .section-head p{margin:0 0 28px; color:var(--muted)}
+
+    /* Cards (serviços) */
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:var(--card); border:1px solid var(--ring); border-radius:16px; padding:18px}
+    .card h3{margin:0 0 8px}
+    .bullets{margin:12px 0 0; padding-left:18px; color:var(--muted)}
+
+    /* Grid (portfólio) */
+    .grid{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+    .thumb{padding:0; background:none; border:none; cursor:zoom-in}
+    .thumb img{width:100%; height:100%; object-fit:cover; aspect-ratio:1/1; border-radius:var(--radius)}
+
+    /* Lightbox <dialog> */
+    dialog#lightbox{border:none; padding:0; background:transparent}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    #lightbox img{max-width:min(92vw,980px); max-height:85vh; display:block; border-radius:var(--radius)}
+    .lb-close{position:fixed; top:18px; right:18px; z-index:2; border:none; background:rgba(0,0,0,.55); color:#fff; width:44px; height:44px; border-radius:999px; font-size:26px; cursor:pointer}
+
+    /* Sobre / Depoimentos / Contato */
+    .about{display:grid; grid-template-columns:1fr; gap:16px}
+    .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    blockquote{margin:0; background:var(--card); border:1px solid var(--ring); border-radius:var(--radius); padding:16px}
+    blockquote footer{color:var(--muted); margin-top:6px}
+    .contact-cta{display:flex; gap:12px; flex-wrap:wrap}
+    .address{margin-top:14px; color:var(--muted)}
+    .site-footer{border-top:1px solid var(--ring); padding:28px 0}
+    .footer-inner{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .social{list-style:none; display:flex; gap:12px; padding:0; margin:0}
+
+    /* Responsivo */
+    @media (max-width:980px){
+      .hero-inner{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .nav-toggle{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--ring); background:transparent; padding:8px 12px; border-radius:10px}
+      .menu{position:fixed; inset:64px 0 auto 0; background:var(--bg); border-bottom:1px solid var(--ring);
+            padding:10px 4vw; transform:translateY(-120%); transition:transform .25s ease; flex-direction:column; align-items:flex-start; gap:6px}
+      .menu.open{transform:translateY(0)}
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- ===== Cabeçalho ===== -->
   <header class="site-header" aria-label="Cabeçalho do site">
     <div class="container header-inner">
       <a class="brand" href="#hero" aria-label="Ir para o início">
@@ -42,12 +130,13 @@
           <li><a href="#sobre">Sobre</a></li>
           <li><a href="#depoimentos">Depoimentos</a></li>
           <li><a href="#contato" class="btn btn--small">Agendar</a></li>
-          <li><button id="themeToggle" class="icon-btn" aria-label="Alternar tema">🌓</button></li>
+          <li><button id="themeToggle" class="icon-btn" aria-label="Alternar tema claro/escuro">🌓</button></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- ===== Conteúdo ===== -->
   <main id="content">
     <!-- HERO -->
     <section id="hero" class="hero" aria-label="Destaque">
@@ -57,6 +146,7 @@
           <h1>Realço belezas reais através da maquiagem</h1>
           <p class="lead">Especialista em noivas, beleza natural e pele glow — atendimento com hora marcada.</p>
           <div class="cta">
+            <!-- Ajuste o link de agendamento conforme necessário -->
             <a class="btn btn--primary" href="https://contate.me/laraluizamakeup" target="_blank" rel="noopener">Agendar agora</a>
             <a class="btn btn--ghost" href="https://www.instagram.com/laraluizamakeup_/" target="_blank" rel="noopener">Instagram</a>
           </div>
@@ -66,8 +156,18 @@
             <li>Make artística: <a href="https://www.instagram.com/laraluizaart/" target="_blank" rel="noopener">@laraluizaart</a></li>
           </ul>
         </div>
+
+        <!-- Imagem de capa (placeholder embutido) -->
         <figure class="hero-media">
-          <img src="assets/hero.jpg" alt="Noiva com pele glow e acabamento natural" loading="eager" decoding="async">
+          <img
+            src="data:image/svg+xml;utf8,
+            <svg xmlns='http://www.w3.org/2000/svg' width='900' height='1100'>
+              <defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
+                <stop offset='0%' stop-color='%23f5e9e5'/><stop offset='100%' stop-color='%23f0d6d2'/></linearGradient></defs>
+              <rect width='100%' height='100%' fill='url(%23g)'/>
+              <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='42' fill='%23222222'>Hero placeholder</text>
+            </svg>"
+            alt="Noiva com pele glow e acabamento natural" loading="eager" decoding="async">
         </figure>
       </div>
     </section>
@@ -121,13 +221,18 @@
         </header>
 
         <ul class="grid" role="list">
-          <!-- Cada item abre o <dialog> como lightbox -->
-          <li><button class="thumb" data-full="assets/portfolio/01.jpg"><img src="assets/portfolio/01.jpg" alt="Maquiagem 01"></button></li>
-          <li><button class="thumb" data-full="assets/portfolio/02.jpg"><img src="assets/portfolio/02.jpg" alt="Maquiagem 02"></button></li>
-          <li><button class="thumb" data-full="assets/portfolio/03.jpg"><img src="assets/portfolio/03.jpg" alt="Maquiagem 03"></button></li>
-          <li><button class="thumb" data-full="assets/portfolio/04.jpg"><img src="assets/portfolio/04.jpg" alt="Maquiagem 04"></button></li>
-          <li><button class="thumb" data-full="assets/portfolio/05.jpg"><img src="assets/portfolio/05.jpg" alt="Maquiagem 05"></button></li>
-          <li><button class="thumb" data-full="assets/portfolio/06.jpg"><img src="assets/portfolio/06.jpg" alt="Maquiagem 06"></button></li>
+          <!-- Substitua os src abaixo por suas imagens reais (JPG/PNG) -->
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<?xml version='1.0'?><svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f1d7d2'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 01</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f1d7d2'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>01</text></svg>" alt="Maquiagem 01"></button></li>
+
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f8e9e5'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 02</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f8e9e5'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>02</text></svg>" alt="Maquiagem 02"></button></li>
+
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23eedfdc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 03</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23eedfdc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>03</text></svg>" alt="Maquiagem 03"></button></li>
+
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23e9d0cc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 04</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23e9d0cc'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>04</text></svg>" alt="Maquiagem 04"></button></li>
+
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23f3e1dd'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 05</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23f3e1dd'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>05</text></svg>" alt="Maquiagem 05"></button></li>
+
+          <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23ecd8d3'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='48' fill='%23222222'>Foto 06</text></svg>"><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><rect width='100%' height='100%' fill='%23ecd8d3'/><text x='50%' y='50%' text-anchor='middle' dominant-baseline='middle' font-family='serif' font-size='28' fill='%23222222'>06</text></svg>" alt="Maquiagem 06"></button></li>
         </ul>
       </div>
 
@@ -146,7 +251,7 @@
           <p>Oi! Eu sou a <strong>Lara Luíza</strong>, maquiadora em BH. Minha proposta é potencializar a beleza real com técnicas que valorizam textura de pele e luminosidade natural, com conforto e durabilidade.</p>
           <ul class="about-points">
             <li>Atendimento com hora marcada</li>
-            <li>Espaço em Lourdes</li>
+            <li>Estúdio em Lourdes</li>
             <li>Higiene e biossegurança</li>
           </ul>
         </div>
@@ -181,7 +286,7 @@
       <div class="container contact">
         <header class="section-head">
           <h2>Agende seu horário</h2>
-          <p>Preferências de data/horário e tipo de make. Retorno rápido pelo WhatsApp.</p>
+          <p>Envie suas preferências de data/horário e o tipo de make. Retorno rápido pelo WhatsApp.</p>
         </header>
 
         <div class="contact-cta">
@@ -197,6 +302,7 @@
     </section>
   </main>
 
+  <!-- Rodapé -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>© <span id="year"></span> Lara Luíza Makeup — Todos os direitos reservados.</p>
@@ -209,21 +315,74 @@
 
   <!-- JSON-LD: negócio local / profissional -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MakeupArtist",
-    "name": "Lara Luíza Makeup",
-    "image": "assets/og-cover.jpg",
-    "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "streetAddress": "Lourdes" },
-    "url": "https://example.com",
-    "sameAs": [
-      "https://www.instagram.com/laraluizamakeup_/"
-    ],
-    "areaServed": "Belo Horizonte",
-    "priceRange": "$$"
-  }
+    {
+      "@context": "https://schema.org",
+      "@type": "MakeupArtist",
+      "name": "Lara Luíza Makeup",
+      "image": "https://example.com/og-cover.jpg",
+      "address": { "@type": "PostalAddress", "addressLocality": "Belo Horizonte", "addressRegion": "MG", "streetAddress": "Lourdes" },
+      "url": "https://example.com",
+      "sameAs": ["https://www.instagram.com/laraluizamakeup_/"],
+      "areaServed": "Belo Horizonte",
+      "priceRange": "$$"
+    }
   </script>
 
-  <script src="script.js" defer></script>
+  <!-- ===== JS inline ===== -->
+  <script>
+    // Toggle de tema claro/escuro (persiste no localStorage)
+    (function theme(){
+      const btn = document.getElementById('themeToggle');
+      if(!btn) return;
+      const KEY = 'theme-preference';
+      const apply = (mode) => { document.documentElement.dataset.theme = mode; };
+      const saved = localStorage.getItem(KEY);
+      if(saved) apply(saved);
+      btn.addEventListener('click', () => {
+        const current = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem(KEY, next);
+        apply(next);
+      });
+    })();
+
+    // Ano dinâmico no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu mobile acessível
+    (function nav(){
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.getElementById('menu');
+      if(!toggle || !menu) return;
+      toggle.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+    })();
+
+    // Lightbox com <dialog>
+    (function lightbox(){
+      const dlg = document.getElementById('lightbox');
+      const img = document.getElementById('lightboxImg');
+      const closeBtn = dlg.querySelector('.lb-close');
+
+      // abre ao clicar nas thumbs
+      document.querySelectorAll('.thumb').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-full');
+          img.src = src;
+          img.alt = btn.querySelector('img').alt;
+          if (typeof dlg.showModal === 'function') dlg.showModal();
+          else dlg.setAttribute('open', '');
+        });
+      });
+
+      // fechar
+      const close = () => dlg.close ? dlg.close() : dlg.removeAttribute('open');
+      closeBtn.addEventListener('click', close);
+      dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape' && (dlg.open || dlg.hasAttribute('open'))) close(); });
+    })();
+  </script>
 </body>
 </html>

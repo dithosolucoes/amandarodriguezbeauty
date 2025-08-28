@@ -1,427 +1,837 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Casarão da Beleza & Saúde — Beleza que respeita sua essência</title>
-<meta name="description" content="Protocolos exclusivos, +10.000 atendimentos em Diadema. Agende sua avaliação guiada.">
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Casarão da Beleza & Saúde">
-<meta property="og:description" content="Beleza que respeita sua essência. Protocolos exclusivos em Diadema.">
-<meta property="og:image" content="assets/og.jpg">
-<meta property="og:locale" content="pt_BR">
-<link rel="icon" href="assets/favicon.svg">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evellyn Make — Noiva impecável, onde você estiver</title>
+<meta name="description" content="Maquiagem e penteado a domicílio em Diadema e região. Especialista em noivas e eventos. Reserve sua data pelo WhatsApp." />
+<meta name="theme-color" content="#DAB6A1" />
+<meta property="og:title" content="Evellyn Make — Noiva impecável, onde você estiver" />
+<meta property="og:description" content="Maquiagem e penteado a domicílio em Diadema e região. Especialista em noivas e eventos." />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
 <style>
-/* =======================
-   DESIGN SYSTEM — TOKENS
-   =======================*/
+/* =========================
+   Paleta fiel à logo/perfil
+   ========================= */
 :root{
-  /* Paleta Luxo Noturno (balanceada) */
-  --blue-900:#0C1C3D;   /* fundo principal */
-  --blue-800:#132650;   /* seções escuras */
-  --blue-100:#EFF3FA;   /* painéis claros */
-  --gold:#E0C97F;       /* acento/CTA */
-  --gold-700:#C6B062;
-  --text:#F7F8FA;       /* texto sobre escuro */
-  --ink:#1B1F24;        /* texto sobre claro */
-  --muted:#8EA0B8;      /* texto secundário escuro */
-  --silver:#C5C6C7;     /* bordas/ícones claros */
-
-  /* Tipos (sistema por performance; troque depois por Playfair/Inter) */
-  --ff-serif: ui-serif, Georgia, "Times New Roman", serif;
-  --ff-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-
-  /* Tamanhos escálaveis */
-  --fs-hero: clamp(2.2rem, 4.2vw, 3.1rem);
-  --fs-h2: clamp(1.6rem, 2.5vw, 2.2rem);
-  --fs-h3: clamp(1.2rem, 1.6vw, 1.35rem);
-  --fs-body: 1rem;
-
-  /* Layout */
-  --container: min(1120px, 92vw);
-  --radius: 18px;
-  --shadow: 0 20px 40px rgba(0,0,0,.20);
+  --bege:#FFFAF5;      /* base nude */
+  --rosado:#DAB6A1;    /* rosé-dourado */
+  --terracota:#7A5C58; /* marrom/terracota p/ ação */
+  --grafite:#1F1F1F;   /* texto principal */
+  --cinza:#6A6A6A;     /* texto secundário */
+  --salvia:#7A8B7B;    /* sucesso/ok */
+  --white:#fff;
+  --bg-soft:#FFF4EC;   /* variação p/ fundos */
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  --radius:14px;
+  --radius-lg:22px;
+  --max:1180px;
+  --sp: clamp(16px, 1.6vw, 22px);
+  --speed:220ms;
 }
 
-/* =======================
-   BASE / RESET
-   =======================*/
+/* ===== Reset básico */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0; background:var(--blue-900); color:var(--text);
-  font: 400 var(--fs-body)/1.6 var(--ff-sans);
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--grafite);
+  background:var(--bege);
+  line-height:1.55;
+  letter-spacing:.2px;
 }
-a{color:inherit}
 img{max-width:100%; display:block}
+a{color:inherit; text-decoration:none}
+h1,h2,h3{font-family:"Cormorant Garamond", Georgia, "Times New Roman", serif; line-height:1.12; margin:0 0 .6rem}
+h1{font-size:clamp(2.2rem, 5vw, 3.4rem)}
+h2{font-size:clamp(1.6rem, 3.2vw, 2.2rem)}
+h3{font-size:clamp(1.15rem, 2.2vw, 1.35rem)}
+p{margin:.5rem 0 .9rem}
+small{color:var(--cinza)}
+.container{width:min(100%, var(--max)); margin-inline:auto; padding-inline:var(--sp)}
+.section{position:relative; padding:clamp(70px, 12vw, 120px) 0}
+.section.bg-soft{background:var(--bg-soft)}
+.section.bg-white{background:var(--white)}
+.chip{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(218,182,161,.18); color:var(--terracota); font-weight:700; letter-spacing:.3px}
 
-/* Acessibilidade */
-a:focus-visible, button:focus-visible, summary:focus-visible{outline:3px solid var(--gold); outline-offset:2px}
-@media (prefers-reduced-motion: reduce){
-  *{scroll-behavior:auto}
-}
-
-/* =======================
-   LAYOUT
-   =======================*/
-.container{width:var(--container); margin-inline:auto; padding:64px 0}
-.section-dark{background:var(--blue-800)}
-.section-light{background:var(--blue-100); color:var(--ink)}
-.section-light h2, .section-light h3{color:var(--ink)}
-.section-tight{padding:40px 0}
-
-h1{font: 700 var(--fs-hero)/1.15 var(--ff-serif); letter-spacing:-.02em; color:var(--text)}
-h2{font: 700 var(--fs-h2)/1.2 var(--ff-serif); letter-spacing:-.015em; color:var(--gold); margin:0 0 16px}
-h3{font: 700 var(--fs-h3)/1.2 var(--ff-sans); margin:0 0 8px}
-.lead{color:var(--muted); max-width:60ch}
-
-/* =======================
-   NAV
-   =======================*/
-.skip{position:absolute; left:-9999px}
-.skip:focus{left:12px; top:12px; background:#fff; color:#000; padding:8px 12px; border-radius:8px}
-
-.nav{
-  position:sticky; top:0; z-index:20; backdrop-filter: blur(6px);
-  background: rgba(12,28,61,.75); border-bottom:1px solid rgba(255,255,255,.06);
-}
-.nav .wrap{
-  width:var(--container); margin:auto; display:flex; gap:20px; align-items:center; padding:10px 0
-}
-.brand{display:flex; align-items:center; gap:10px; font-weight:800}
-.brand .dot{width:10px; height:10px; border-radius:50%; background:var(--gold); box-shadow:0 0 12px rgba(224,201,127,.8)}
-.nav a{color:var(--text); text-decoration:none; font-weight:600; opacity:.9}
-.nav a:hover{opacity:1}
-.nav .spacer{flex:1}
-.cta-small{
-  display:inline-block; padding:10px 14px; border-radius:12px; background:var(--gold); color:#0b0b0b; font-weight:800; text-decoration:none
-}
-
-/* =======================
-   HERO
-   =======================*/
-.hero{
-  min-height:72vh; display:grid; place-items:center; text-align:center; padding:90px 0 60px;
-  background:
-    radial-gradient(1000px 600px at 80% -10%, rgba(224,201,127,.10), transparent 60%),
-    radial-gradient(800px 500px at 10% 10%, rgba(98,126,234,.14), transparent 60%),
-    var(--blue-900);
-}
-.hero .kpis{display:flex; gap:24px; justify-content:center; flex-wrap:wrap; margin:12px 0 24px}
-.kpi{padding:8px 14px; border:1px solid rgba(255,255,255,.2); border-radius:999px; font-weight:600; color:var(--silver)}
-
-/* =======================
-   GRID / CARDS
-   =======================*/
-.grid{display:grid; gap:20px}
-.grid.cols-3{grid-template-columns:repeat(3,1fr)}
-.grid.cols-2{grid-template-columns:repeat(2,1fr)}
-@media (max-width:900px){
-  .grid.cols-3,.grid.cols-2{grid-template-columns:1fr}
-}
-.card{
-  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));
-  border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)
-}
-.card.light{
-  background:#fff; border:1px solid #E7ECF5; color:var(--ink)
-}
-
-/* =======================
-   COMPONENTES
-   =======================*/
+/* ===== Botões */
 .btn{
-  display:inline-block; padding:14px 22px; border-radius:14px; text-decoration:none; font-weight:800; letter-spacing:.2px
+  display:inline-flex; align-items:center; gap:10px; padding:12px 16px;
+  border-radius:12px; border:0; cursor:pointer; font-weight:800; letter-spacing:.3px;
+  background:var(--terracota); color:#fff; box-shadow:0 8px 26px rgba(122,92,88,.28);
+  transition:transform var(--speed), background var(--speed), box-shadow var(--speed);
 }
-.btn.primary{background:var(--gold); color:#0B0B0B}
-.btn.primary:hover{background:var(--gold-700)}
-.btn.ghost{border:2px solid var(--gold); color:var(--text)}
-.btn.ghost:hover{background:rgba(224,201,127,.12)}
-.badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); color:var(--silver); font-weight:600}
+.btn:hover{transform:translateY(-1px); background:#8a6b66}
+.btn.secondary{background:var(--rosado); color:#2b2b2b; box-shadow:0 8px 26px rgba(218,182,161,.38)}
+.btn.ghost{background:transparent; color:var(--terracota); border:1.5px solid rgba(122,92,88,.35)}
 
-/* Carrossel simples com scroll-snap */
-.snap{display:flex; gap:16px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom:8px}
-.snap > figure{min-width:280px; scroll-snap-align:start; margin:0}
-.figure{background:#0f1e44; border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden}
-.figure img{aspect-ratio:4/3; object-fit:cover; width:100%}
-.caption{padding:10px 12px; font-size:.95rem; color:var(--silver)}
+/* ===== Cards + Grid */
+.card{background:#fff; border:1px solid rgba(31,31,31,.06); box-shadow:var(--shadow); border-radius:var(--radius); overflow:hidden}
+.grid{display:grid; gap:20px}
 
-/* FAQ */
-details{border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:14px 16px; background:rgba(255,255,255,.02)}
-details+details{margin-top:10px}
-summary{cursor:pointer; font-weight:700}
-
-/* Agenda bloco */
-.actions{display:flex; gap:12px; flex-wrap:wrap}
-
-/* Rodapé */
-.footer{background:var(--blue-800); color:var(--silver); font-size:.95rem}
-
-/* Botão flutuante WhatsApp */
-.whats{
-  position:fixed; right:16px; bottom:16px; z-index:10; text-decoration:none;
-  background:#25D366; color:#fff; border-radius:999px; padding:12px 16px; font-weight:900; box-shadow:0 8px 18px rgba(0,0,0,.35)
+/* ===== Header */
+.skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
+.skip:focus{position:fixed; left:16px; top:16px; width:auto; height:auto; background:#fff; color:#000; padding:10px 14px; border-radius:10px; box-shadow:var(--shadow); z-index:3000}
+header{
+  position:sticky; top:0; z-index:2000;
+  background:rgba(255,255,255,.88); backdrop-filter:saturate(120%) blur(10px);
+  border-bottom:1px solid rgba(31,31,31,.06);
 }
+.nav{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 0}
+.brand{display:flex; align-items:center; gap:12px}
+.logo{
+  width:44px; height:44px; border-radius:50%;
+  background:
+    radial-gradient(65% 70% at 40% 35%, #fff 0 40%, rgba(255,255,255,.3) 45% 100%),
+    linear-gradient(140deg, #fff, #f7ede6 55%, #efdccc);
+  border:1px solid rgba(31,31,31,.06); box-shadow:inset 0 6px 16px rgba(218,182,161,.45);
+}
+.brand h3{margin:0; font-weight:800; letter-spacing:.2px}
+.menu{display:flex; gap:6px; flex-wrap:wrap}
+.menu a{padding:9px 12px; border-radius:10px; font-weight:700; color:#3a3130}
+.menu a:is(:hover,.active){background:rgba(122,92,88,.10); color:var(--terracota)}
+.hamb{display:none; width:42px; height:42px; border-radius:10px; background:rgba(0,0,0,.05); align-items:center; justify-content:center}
+.hamb span{width:20px; height:2px; background:#333; display:block; position:relative}
+.hamb span:before,.hamb span:after{content:""; position:absolute; left:0; width:100%; height:2px; background:#333}
+.hamb span:before{top:-6px} .hamb span:after{top:6px}
+@media (max-width:980px){
+  .menu{display:none}
+  .hamb{display:flex}
+  .menu.open{display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:10px 0}
+}
+
+/* ===== Hero */
+.hero{
+  padding-top:40px; overflow:hidden;
+  background:
+    radial-gradient(1100px 600px at 80% -10%, rgba(218,182,161,.26), transparent 70%),
+    radial-gradient(800px 500px at -10% 10%, rgba(122,92,88,.07), transparent 60%),
+    linear-gradient(180deg, var(--bege), #fff);
+}
+.hero .wrap{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(16px,3.5vw,36px); align-items:center}
+.hero .lead{font-size:clamp(1.05rem, 1.4vw, 1.18rem); color:#3a3130}
+.badges{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 20px}
+.stats{display:flex; gap:14px; flex-wrap:wrap; margin-top:14px}
+.stat{background:#fff; border:1px solid rgba(31,31,31,.06); border-radius:12px; padding:10px 12px; box-shadow:var(--shadow)}
+.hero-media{position:relative}
+.oval{
+  aspect-ratio:1/1; border-radius:999px;
+  background:
+    radial-gradient(65% 65% at 50% 35%, rgba(255,255,255,.95) 0 40%, rgba(255,255,255,.5) 40% 75%, transparent 76%),
+    linear-gradient(135deg,#fff,#fdf5f1 50%, #f5e5db);
+  border:1px solid rgba(31,31,31,.06); box-shadow:0 20px 60px rgba(122,92,88,.28);
+}
+.floating{
+  position:absolute; inset:auto auto -14px -14px; background:#fff; border:1px solid rgba(31,31,31,.08);
+  padding:12px 14px; border-radius:12px; box-shadow:var(--shadow); display:flex; align-items:center; gap:10px
+}
+.dot{width:10px; height:10px; border-radius:50%; background:var(--salvia)}
+
+/* ===== SVG decor (ondas) */
+.decor{position:absolute; inset:auto 0 -1px 0; pointer-events:none}
+
+/* ===== Prova Social (antes/depois + quotes) */
+.proof .grid{grid-template-columns:1fr 1fr; align-items:center}
+.before-after{position:relative; border-radius:var(--radius-lg); overflow:hidden; border:1px solid rgba(31,31,31,.06); box-shadow:var(--shadow)}
+.before-after img{width:100%; height:100%; object-fit:cover}
+.before-after .overlay{position:absolute; inset:0; width:50%; overflow:hidden; transition:width var(--speed)}
+.legend{position:absolute; top:8px; left:8px; display:flex; gap:8px; z-index:2}
+.legend .tag{background:rgba(255,255,255,.95); border:1px solid rgba(31,31,31,.06); padding:6px 10px; border-radius:999px; font-size:.85rem}
+.slider{appearance:none; width:100%; position:absolute; inset:auto 0 0 0; height:28px; background:transparent; cursor:ew-resize; outline:none}
+.slider::-webkit-slider-thumb{appearance:none; width:20px; height:20px; border-radius:50%; background:var(--terracota); border:3px solid #fff; box-shadow:0 4px 14px rgba(122,92,88,.35)}
+.quotes{display:grid; gap:12px}
+.quote{background:#fff; border:1px solid rgba(31,31,31,.06); border-radius:var(--radius); padding:14px 16px; box-shadow:var(--shadow); display:flex; gap:12px}
+.avatar{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#f1e5de,#fff); border:1px solid rgba(31,31,31,.1)}
+.stars{color:#B88971}
+
+/* ===== Serviços (noivas/sociais) */
+.service .grid{grid-template-columns:repeat(3,1fr)}
+.service .card .body{padding:16px}
+.list{display:flex; flex-direction:column; gap:8px; margin-top:6px}
+.list li{display:flex; gap:8px}
+.list li:before{content:"✓"; color:var(--salvia); font-weight:900; margin-top:1px}
+
+/* ===== Portfólio filtrável */
+.filters{display:flex; gap:8px; flex-wrap:wrap; margin:.6rem 0 1rem}
+.filters button{
+  border:1px solid rgba(31,31,31,.12); background:#fff; color:#3a3130;
+  padding:8px 12px; border-radius:999px; cursor:pointer; font-weight:700
+}
+.filters button.active{background:var(--rosado)}
+.masonry{columns:1; column-gap:16px}
+.masonry .item{break-inside:avoid; margin:0 0 16px}
+@media (min-width:620px){.masonry{columns:2}}
+@media (min-width:980px){.masonry{columns:3}}
+.tag-badge{position:absolute; top:8px; left:8px; background:rgba(255,255,255,.92); padding:6px 10px; border-radius:999px; border:1px solid rgba(31,31,31,.06); font-size:.82rem}
+
+/* ===== Pacotes / Investimento */
+.table{width:100%; border-collapse:separate; border-spacing:0 10px}
+.table tr{background:#fff; box-shadow:var(--shadow)}
+.table td{padding:14px 16px; border-top:1px solid rgba(31,31,31,.06); border-bottom:1px solid rgba(31,31,31,.06)}
+.table tr:first-child td{border-top-left-radius:12px; border-top-right-radius:12px}
+.table tr:last-child td{border-bottom-left-radius:12px; border-bottom-right-radius:12px}
+.badge{display:inline-block; padding:4px 8px; border-radius:999px; background:rgba(122,92,88,.1); color:var(--terracota); font-weight:700}
+
+/* ===== Agenda / Form */
+form .row{display:grid; gap:12px; grid-template-columns:1fr}
+form label{font-weight:700; display:block; margin-bottom:6px}
+input, select, textarea{
+  width:100%; padding:12px 12px; border-radius:10px; border:1px solid rgba(31,31,31,.12);
+  background:#fff; outline:0; transition:border var(--speed), box-shadow var(--speed)
+}
+input:focus,select:focus,textarea:focus{border-color:var(--terracota); box-shadow:0 0 0 3px rgba(122,92,88,.15)}
+textarea{min-height:110px; resize:vertical}
+@media (min-width:720px){form .row{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== Processo */
+.steps{display:grid; gap:16px; grid-template-columns:repeat(4,1fr)}
+.step{background:#fff; border:1px solid rgba(31,31,31,.06); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
+.step .n{width:34px; height:34px; border-radius:50%; display:grid; place-items:center; background:var(--rosado); font-weight:800}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ===== Depoimentos - carrossel */
+.carousel{position:relative; overflow:hidden}
+.track{display:flex; transition:transform var(--speed); gap:16px}
+.slide{min-width:calc(100% - 2px); background:#fff; border:1px solid rgba(31,31,31,.06); border-radius:14px; box-shadow:var(--shadow); padding:16px}
+.controls{display:flex; gap:8px; justify-content:flex-end; margin-top:8px}
+.control{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:rgba(0,0,0,.05); cursor:pointer}
+
+/* ===== Blog / Dicas (cards) */
+.blog-grid{display:grid; gap:16px; grid-template-columns:1fr}
+@media (min-width:760px){.blog-grid{grid-template-columns:1fr 1fr 1fr}}
+
+/* ===== Contato / rodapé */
+.contact-grid{display:grid; gap:18px; grid-template-columns:1.2fr .8fr}
+.map{background:linear-gradient(135deg,#fff,#f7ece4); border:1px solid rgba(31,31,31,.06); box-shadow:var(--shadow); border-radius:16px; padding:14px}
+footer{background:var(--grafite); color:#fff; padding:28px 0; text-align:center}
+
+/* ===== Aparições + Interseção */
+.reveal{opacity:0; transform:translateY(16px); transition:opacity 600ms, transform 600ms}
+.reveal.in{opacity:1; transform:none}
+
+/* ===== Responsivo hero grid */
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<a class="skip" href="#inicio">Pular para o conteúdo</a>
 
-<!-- NAV -->
-<header class="nav" role="navigation" aria-label="Principal">
-  <div class="wrap">
-    <div class="brand"><span class="dot"></span> Casarão</div>
-    <nav aria-label="Âncoras da página" style="display:flex; gap:16px; flex-wrap:wrap">
-      <a href="#hero">Início</a>
-      <a href="#porque">Por que</a>
-      <a href="#jornadas">Jornadas</a>
-      <a href="#protocolos">Protocolos</a>
-      <a href="#provas">Resultados</a>
-      <a href="#time">Time</a>
-      <a href="#faq">FAQ</a>
-      <a href="#local">Local</a>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h3>Evellyn Make</h3>
+    </div>
+    <nav aria-label="Principal">
+      <div class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#prova">Prova</a>
+        <a href="#noivas">Noivas</a>
+        <a href="#sociais">Sociais</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#pacotes">Pacotes</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#processo">Processo</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#blog">Dicas</a>
+        <a href="#contato">Contato</a>
+      </div>
     </nav>
-    <div class="spacer"></div>
-    <a class="cta-small" href="https://wa.me/5511987219029?text=Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" data-evt="whats-top">Agendar</a>
+    <button class="hamb" id="hamb" aria-label="Abrir menu"><span></span></button>
   </div>
 </header>
 
-<main id="conteudo">
-
-  <!-- HERO -->
-  <section id="hero" class="hero">
-    <div class="container" style="text-align:center">
-      <h1>Beleza que respeita sua essência.</h1>
-      <p class="lead">Protocolos exclusivos. <strong>+10.000 atendimentos</strong> em Diadema. “Libertar-se dos padrões, criar seu estilo”.</p>
-      <div class="kpis">
-        <span class="kpi">Referência em Diadema</span>
-        <span class="kpi">Avaliação guiada</span>
-        <span class="kpi">Biossegurança</span>
+<!-- 1) HERO -->
+<section id="inicio" class="section hero">
+  <div class="container wrap">
+    <div>
+      <span class="chip">Diadema • ABC • A domicílio</span>
+      <h1>Noiva impecável, onde você estiver.</h1>
+      <p class="lead">Make & Penteado a domicílio em Diadema e região — <b>durabilidade</b>, <b>pontualidade</b> e fotos perfeitas até o último abraço.</p>
+      <div class="badges">
+        <span class="badge">Atendo 1 noiva/dia</span>
+        <span class="badge">Higiene e biossegurança</span>
+        <span class="badge">Penteado + Make integrados</span>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="#agenda">Agendar avaliação</a>
-        <a class="btn ghost" href="#jornadas">Ver Jornadas de Resultado</a>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px">
+        <a class="btn" href="https://wa.me/SEU_NUMERO_WHATS?text=Oi%20Evellyn!%20Quero%20consultar%20disponibilidade%20para%20minha%20data.%20Sou%20de%20____%20e%20meu%20evento%20%C3%A9%20em%20__/__/____." target="_blank" rel="noopener">Reservar minha data</a>
+        <a class="btn ghost" href="#portfolio">Ver trabalhos</a>
       </div>
-    </div>
-  </section>
-
-  <!-- POR QUE -->
-  <section id="porque" class="section-dark">
-    <div class="container">
-      <h2>Por que o Casarão</h2>
-      <p class="lead">Três bases simples e eternas: método próprio, especialistas e cuidado 360 (beleza & saúde).</p>
-      <div class="grid cols-3" style="margin-top:16px">
-        <div class="card">
-          <h3>Metodologia própria</h3>
-          <p>Protocolos nomeados e documentados para cada objetivo (pele, cabelo, sobrancelhas).</p>
-        </div>
-        <div class="card">
-          <h3>Time especialista</h3>
-          <p>Profissionais com certificações e prática diária — atendimento humano, sem pressa.</p>
-        </div>
-        <div class="card">
-          <h3>Cuidado 360°</h3>
-          <p>Integramos estética, saúde e rotina de manutenção — resultado que permanece.</p>
-        </div>
+      <div class="stats">
+        <div class="stat"><b>+120</b><br/><small>Eventos atendidos</small></div>
+        <div class="stat"><b>0</b><br/><small>atrasos nos últimos 12 meses</small></div>
+        <div class="stat"><b>+3 anos</b><br/><small>de experiência</small></div>
       </div>
     </div>
-  </section>
+    <div class="hero-media">
+      <div class="oval" aria-hidden="true"></div>
+      <div class="floating"><span class="dot"></span><b>Prévia garantida</b><small>para noivas</small></div>
+    </div>
+  </div>
+  <!-- Onda decor -->
+  <svg class="decor" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,120 480,0 720,60 C960,120 1200,40 1440,80 L1440,120 L0,120 Z" fill="rgba(218,182,161,.18)"></path>
+  </svg>
+</section>
 
-  <!-- JORNADAS -->
-  <section id="jornadas" class="section-light">
-    <div class="container">
-      <h2>Jornadas de Resultado</h2>
-      <p class="lead">Em vez de “lista de serviços”, caminhos claros para o que você quer alcançar.</p>
-      <div class="grid cols-2" style="margin-top:12px">
-        <div class="card light">
-          <h3>Pele Saudável</h3>
-          <p>Limpeza de pele avançada, LED calmante e plano de manutenção de 90 dias.</p>
-        </div>
-        <div class="card light">
-          <h3>Cabelo com Assinatura</h3>
-          <p>Diagnóstico de cor e corte, brilho e proteção — assinatura que combina com você.</p>
-        </div>
-        <div class="card light">
-          <h3>Sobrancelhas Harmônicas</h3>
-          <p>Design + henna/tona, mantendo expressão natural e simetria suave.</p>
-        </div>
-        <div class="card light">
-          <h3>Ritual Completo</h3>
-          <p>Day Spa urbano: pele + cabelo + bem-estar para ocasiões especiais.</p>
-        </div>
+<!-- 2) PROVA SOCIAL -->
+<section id="prova" class="section bg-white proof">
+  <div class="container grid">
+    <div class="before-after reveal">
+      <div class="legend">
+        <span class="tag">Antes</span>
+        <span class="tag">Depois</span>
       </div>
-      <div class="actions" style="margin-top:12px">
-        <a class="btn primary" href="#agenda">Escolher minha jornada</a>
+      <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Cliente antes da maquiagem">
+      <div class="overlay" id="overlay">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="" aria-hidden="true" />
       </div>
+      <input type="range" min="0" max="100" value="50" class="slider" id="ba">
     </div>
-  </section>
-
-  <!-- PROTOCOLOS -->
-  <section id="protocolos" class="section-dark">
-    <div class="container">
-      <h2>Protocolos-estrela</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="card"><h3>Casarão Glow 90’</h3><p>Limpeza, extração suave, LED e máscara calmante. Conforto e viço imediato.</p></div>
-        <div class="card"><h3>Color Design 3D</h3><p>Diagnóstico de cor/nuance + técnica de brilho duradouro, respeitando seu subtom.</p></div>
-        <div class="card"><h3>Brow Harmony Express</h3><p>Design + henna/tona em 30’, com manutenção guiada.</p></div>
-      </div>
-      <div class="actions" style="margin-top:12px"><a class="btn ghost" href="#agenda">Reservar protocolo</a></div>
-    </div>
-  </section>
-
-  <!-- RESULTADOS (ANTES/DEPOIS) -->
-  <section id="provas" class="section-light">
-    <div class="container">
-      <h2>Resultados reais</h2>
-      <p class="lead">Contexto completo (desafio → protocolo → manutenção). Ética visual: mesmos ângulos e luz.</p>
-      <div class="snap" style="margin-top:12px">
-        <figure class="figure"><img src="assets/pele-01.jpg" alt="Antes e depois pele (2 sessões Glow 90’)"><figcaption class="caption">Pele oleosa · 2 sessões Glow 90’ → textura uniforme</figcaption></figure>
-        <figure class="figure"><img src="assets/cabelo-01.jpg" alt="Color Design 3D com brilho"><figcaption class="caption">Color 3D → brilho e nuance preservando saúde</figcaption></figure>
-        <figure class="figure"><img src="assets/brow-01.jpg" alt="Brow Harmony express"><figcaption class="caption">Brow Harmony → linhas naturais e harmônicas</figcaption></figure>
-      </div>
-      <p style="color:#5f6b7a; margin-top:8px">* Resultados variam por perfil. Seguimos biossegurança e boas práticas.</p>
-    </div>
-  </section>
-
-  <!-- OFERTA PRIMEIRA VISITA -->
-  <section id="oferta" class="section-dark">
-    <div class="container">
-      <h2>Primeira visita guiada</h2>
-      <p class="lead">Consulta + plano de 90 dias. Bônus: guia de cuidados personalizado.</p>
-      <div class="actions"><a class="btn primary" href="#agenda">Agendar avaliação</a></div>
-    </div>
-  </section>
-
-  <!-- TIME -->
-  <section id="time" class="section-light">
-    <div class="container">
-      <h2>Nosso time</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <article class="card light"><h3>Ana — Estética</h3><p>Especialista em pele e protocolos calmantes.</p><a class="btn ghost" href="#agenda">Agendar com Ana</a></article>
-        <article class="card light"><h3>Marcos — Hair</h3><p>Colorimetria e cortes com assinatura.</p><a class="btn ghost" href="#agenda">Agendar com Marcos</a></article>
-        <article class="card light"><h3>Luiza — Brows</h3><p>Design de sobrancelhas natural e preciso.</p><a class="btn ghost" href="#agenda">Agendar com Luiza</a></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- AGENDA -->
-  <section id="agenda" class="section-dark">
-    <div class="container">
-      <h2>Agendar agora</h2>
-      <p class="lead">Confirmação rápida. Sem taxa de reserva. Cancelamento gratuito até 24h.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://wa.me/5511987219029?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" data-evt="whats">WhatsApp</a>
-        <a class="btn ghost" href="tel:+5511987219029" data-evt="call">Ligar</a>
-        <a class="btn ghost" href="https://www.fresha.com/lvp/casarao-da-beleza-e-saude-rua-itaguare-ov3a29" target="_blank" rel="noopener" data-evt="agenda">Agenda online</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTOS -->
-  <section id="depoimentos" class="section-light">
-    <div class="container">
-      <h2>O que dizem</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <blockquote class="card light"><p>“Voltei a me reconhecer no espelho sem filtros.”</p><footer>— Ana M., 34 · Cliente verificada</footer></blockquote>
-        <blockquote class="card light"><p>“Não é só salão. É cuidado real com a gente.”</p><footer>— Camila R., 29 · Cliente verificada</footer></blockquote>
-        <blockquote class="card light"><p>“Coloração perfeita e cabelo saudável. Virei fã.”</p><footer>— Paula S., 38 · Cliente verificada</footer></blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ (SEO) -->
-  <section id="faq" class="section-dark">
-    <div class="container">
-      <h2>Perguntas frequentes</h2>
-      <details><summary>Limpeza de pele dói?</summary><p>Usamos extração suave e LED calmante para conforto durante o processo.</p></details>
-      <details><summary>Quanto tempo dura a coloração?</summary><p>Em média 6–8 semanas, variando por rotina e exposição solar/química.</p></details>
-      <details><summary>Posso agendar por WhatsApp?</summary><p>Sim. Clique em “WhatsApp” e receba confirmação rápida.</p></details>
-    </div>
-  </section>
-
-  <!-- LOCAL -->
-  <section id="local" class="section-light">
-    <div class="container">
-      <h2>Onde estamos</h2>
-      <p class="lead">Rua Itaguaré, 85 — Centro, Diadema/SP — CEP 09910-360</p>
-      <div class="grid cols-2" style="margin-top:12px">
-        <div class="card light">
-          <h3>Horários</h3>
-          <p>Ter–Sex 09:00–20:00 · Sáb 09:00–16:00 · Dom/Seg fechado</p>
-          <p><strong>Telefone/WhatsApp:</strong> (11) 98721-9029</p>
-          <div class="actions">
-            <a class="btn ghost" href="https://maps.google.com/?q=R.+Itaguar%C3%A9%2C+85+-+Centro%2C+Diadema+-+SP%2C+09910-360" target="_blank" rel="noopener">Ver rotas</a>
+    <div class="reveal">
+      <span class="chip">Prova social</span>
+      <h2>Beleza real que dura o evento inteiro.</h2>
+      <div class="quotes">
+        <div class="quote">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“A make ficou intacta até o fim da festa. E o penteado resistiu ao véu e à pista!”</p>
+            <small>Bruna — Noiva • Diadema</small>
           </div>
         </div>
-        <div class="card light">
-          <iframe title="Mapa Casarão" src="https://maps.google.com/maps?q=Rua%20Itaguar%C3%A9%2085%20Diadema&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="260" style="border:0; border-radius:12px"></iframe>
+        <div class="quote">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“Pontual, calma e muito cuidadosa. O dia foi leve do começo ao fim.”</p>
+            <small>Marina — Noiva • São Bernardo</small>
+          </div>
+        </div>
+        <div class="quote">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <div class="stars">★★★★★</div>
+            <p>“Fechamos pacote noivas+madrinhas e valeu cada centavo.”</p>
+            <small>Camila — Madrinha • Santo André</small>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <a class="btn" href="#agenda">Consultar disponibilidade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3) NOIVAS -->
+<section id="noivas" class="section bg-soft service">
+  <div class="container">
+    <span class="chip">Serviço principal</span>
+    <h2>Noivas — make & penteado integrados</h2>
+    <p class="muted">Prévia técnica + planejamento do dia + look final durável e confortável.</p>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:12px">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Prévia técnica">
+        <div class="body">
+          <h3>Prévia</h3>
+          <ul class="list">
+            <li>Teste de pele e fotografia</li>
+            <li>Escolha de acabamento (mate/glow)</li>
+            <li>Definição de horários</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1504079429061-4c1c1a17b9ff?q=80&w=1200&auto=format&fit=crop" alt="Dia da noiva">
+        <div class="body">
+          <h3>Dia da Noiva</h3>
+          <ul class="list">
+            <li>Pele fotográfica de longa duração</li>
+            <li>Olhos e lábios conforme luz do local</li>
+            <li>Retoques estratégicos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1546776310-eef45dd6d63c?q=80&w=1200&auto=format&fit=crop" alt="Penteado com véu">
+        <div class="body">
+          <h3>Penteado</h3>
+          <ul class="list">
+            <li>Pinagem segura p/ véu e acessórios</li>
+            <li>Babyliss personalizado e fixação leve</li>
+            <li>Acabamento anti-frizz</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- BLOG GUIA -->
-  <section id="blog" class="section-dark">
-    <div class="container">
-      <h2>Guia rápido</h2>
-      <div class="grid cols-3" style="margin-top:12px">
-        <article class="card"><h3>Checklist pré-limpeza de pele</h3><p>Como chegar na sessão com pele pronta para melhores resultados.</p></article>
-        <article class="card"><h3>Coloração que respeita seu subtom</h3><p>O que considerar para uma cor bonita e durável.</p></article>
-        <article class="card"><h3>Manutenção das sobrancelhas</h3><p>Dicas simples para manter harmonia entre sessões.</p></article>
-      </div>
+    <div style="margin-top:14px">
+      <a class="btn" href="#agenda">Ver minha data</a>
     </div>
-  </section>
+  </div>
+  <svg class="decor" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,50 C200,0 420,120 720,60 C1020,0 1240,110 1440,60 L1440,120 L0,120 Z" fill="rgba(122,92,88,.10)"></path>
+  </svg>
+</section>
 
-  <!-- CTA FINAL -->
-  <section id="cta" class="section-light section-tight">
-    <div class="container" style="text-align:center">
-      <h2>Beleza que respeita sua essência</h2>
-      <p class="lead">Agende sua primeira avaliação guiada e receba um plano de 90 dias.</p>
-      <div class="actions" style="justify-content:center">
-        <a class="btn primary" href="#agenda">Agendar agora</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
+<!-- 4) SOCIAIS -->
+<section id="sociais" class="section bg-white service">
   <div class="container">
-    © 2025 Casarão da Beleza & Saúde · R. Itaguaré, 85 — Centro, Diadema/SP · (11) 98721-9029
+    <span class="chip">Outros eventos</span>
+    <h2>Madrinhas, debutantes e formandas</h2>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr); margin-top:12px">
+      <div class="card">
+        <div class="body">
+          <h3>Madrinhas</h3>
+          <p>Look harmônico com a paleta do casamento e a sua personalidade.</p>
+          <ul class="list">
+            <li>Consultoria rápida de vestido × make</li>
+            <li>Pele confortável 10–14h</li>
+            <li>Opção cabelo incluso</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="body">
+          <h3>Debut</h3>
+          <p>Fresco, jovem e fotográfico — sem pesar a pele.</p>
+          <ul class="list">
+            <li>Prova de luz (flash vs. ambiente)</li>
+            <li>Detalhes para book</li>
+            <li>Fixação leve e flexível</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card">
+        <div class="body">
+          <h3>Formaturas</h3>
+          <p>Resistência a clima e pista, com acabamento impecável.</p>
+          <ul class="list">
+            <li>Durabilidade + retoque</li>
+            <li>Olhos definidos para foto</li>
+            <li>Cabelo com volume natural</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5) PORTFÓLIO -->
+<section id="portfolio" class="section bg-soft">
+  <div class="container">
+    <span class="chip">Portfólio</span>
+    <h2>Trabalhos recentes</h2>
+    <div class="filters" role="tablist" aria-label="Filtros do portfólio">
+      <button class="active" data-filter="all" role="tab" aria-selected="true">Tudo</button>
+      <button data-filter="noivas" role="tab">Noivas</button>
+      <button data-filter="madrinhas" role="tab">Madrinhas</button>
+      <button data-filter="penteados" role="tab">Penteados</button>
+    </div>
+    <div class="masonry" id="masonry">
+      <!-- item -->
+      <figure class="item" data-cat="noivas" style="position:relative">
+        <span class="tag-badge">Noiva</span>
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Noiva pele glow" loading="lazy">
+        <figcaption>Brilho sutil + olho definido</figcaption>
+      </figure>
+      <figure class="item" data-cat="madrinhas" style="position:relative">
+        <span class="tag-badge">Madrinha</span>
+        <img src="https://images.unsplash.com/photo-1520975922361-48f0d6a2af6c?q=80&w=1200&auto=format&fit=crop" alt="Madrinha elegante" loading="lazy">
+        <figcaption>Elegância discreta</figcaption>
+      </figure>
+      <figure class="item" data-cat="penteados" style="position:relative">
+        <span class="tag-badge">Penteado</span>
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Penteado com véu" loading="lazy">
+        <figcaption>Penteado com véu seguro</figcaption>
+      </figure>
+      <figure class="item" data-cat="noivas" style="position:relative">
+        <span class="tag-badge">Noiva</span>
+        <img src="https://images.unsplash.com/photo-1504079429061-4c1c1a17b9ff?q=80&w=1200&auto=format&fit=crop" alt="Noiva clássica" loading="lazy">
+        <figcaption>Clássico atemporal</figcaption>
+      </figure>
+      <figure class="item" data-cat="penteados" style="position:relative">
+        <span class="tag-badge">Penteado</span>
+        <img src="https://images.unsplash.com/photo-1546776310-eef45dd6d63c?q=80&w=1200&auto=format&fit=crop" alt="Coque baixo" loading="lazy">
+        <figcaption>Coque baixo estruturado</figcaption>
+      </figure>
+      <figure class="item" data-cat="madrinhas" style="position:relative">
+        <span class="tag-badge">Madrinha</span>
+        <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143?q=80&w=1200&auto=format&fit=crop" alt="Madrinha smoke leve" loading="lazy">
+        <figcaption>Smoke leve, boca nude</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6) PACOTES / INVESTIMENTO -->
+<section id="pacotes" class="section bg-white">
+  <div class="container">
+    <span class="chip">Investimento claro</span>
+    <h2>Pacotes & condições</h2>
+    <p class="muted">Delivery incluso até X km de Diadema; acima, taxa por km. Valores podem variar conforme agenda e complexidade.</p>
+    <div class="card" style="padding:14px">
+      <table class="table" aria-describedby="pacotes">
+        <tbody>
+          <tr>
+            <td style="width:26%"><b>Âncora Noiva</b><br><small>Pele + Olhos + Lábios</small></td>
+            <td>Prévia técnica + look final • Fixação e fotografia</td>
+            <td><span class="badge">a partir de</span> <b>R$ —</b></td>
+          </tr>
+          <tr>
+            <td><b>Completo Noiva</b><br><small>Make + Penteado</small></td>
+            <td>Prévia + Dia da noiva + Penteado com véu • Retoque estratégico</td>
+            <td><span class="badge">recomendado</span> <b>R$ —</b></td>
+          </tr>
+          <tr>
+            <td><b>Sociais</b><br><small>Madrinhas / Debut / Formandas</small></td>
+            <td>Beleza sob medida e durável • Opção cabelo incluso</td>
+            <td><b>R$ —</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px">
+      <a class="btn" href="#agenda">Quero orçamento rápido</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7) AGENDA / FORM -->
+<section id="agenda" class="section bg-soft">
+  <div class="container">
+    <span class="chip">Agendamento</span>
+    <h2>Ver disponibilidade da minha data</h2>
+    <form id="formAgenda" class="card" style="padding:16px" novalidate>
+      <div class="row">
+        <div>
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" required placeholder="Seu nome" />
+        </div>
+        <div>
+          <label for="data">Data do evento</label>
+          <input type="date" id="data" name="data" required />
+        </div>
+        <div>
+          <label for="cidade">Cidade/Bairro</label>
+          <input id="cidade" name="cidade" required placeholder="Ex.: Diadema / Centro" />
+        </div>
+        <div>
+          <label for="tipo">Tipo de evento</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione…</option>
+            <option>Noiva</option>
+            <option>Madrinha</option>
+            <option>Debut</option>
+            <option>Formatura</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div>
+          <label for="servico">Serviço</label>
+          <select id="servico" name="servico" required>
+            <option value="">Selecione…</option>
+            <option>Somente maquiagem</option>
+            <option>Somente penteado</option>
+            <option>Make + Penteado</option>
+          </select>
+        </div>
+        <div>
+          <label for="horario">Horário do evento</label>
+          <input id="horario" name="horario" placeholder="Ex.: 19:30" />
+        </div>
+        <div style="grid-column:1/-1">
+          <label for="detalhes">Detalhes</label>
+          <textarea id="detalhes" name="detalhes" placeholder="Conte rapidinho como será seu evento"></textarea>
+        </div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+        <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+        <a class="btn secondary" href="https://wa.me/SEU_NUMERO_WHATS" target="_blank" rel="noopener">Abrir WhatsApp agora</a>
+      </div>
+      <small class="muted">Ao enviar, abriremos o WhatsApp com a sua mensagem preenchida.</small>
+    </form>
+  </div>
+</section>
+
+<!-- 8) SOBRE -->
+<section id="sobre" class="section bg-white">
+  <div class="container">
+    <span class="chip">Quem cuida de você</span>
+    <h2>Sobre a Evellyn</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr; align-items:center">
+      <div class="reveal">
+        <p>Maquiadora profissional com foco em <b>noivas e eventos</b>, atendendo <b>a domicílio</b> em Diadema e região. Especialista em pele fotográfica e penteados com fixação leve que respeitam véu e acessórios.</p>
+        <ul class="list">
+          <li>Pontualidade e calma no dia</li>
+          <li>Higiene e biossegurança</li>
+          <li>Atendimento <b>1 noiva/dia</b></li>
+        </ul>
+        <div style="margin-top:10px">
+          <a class="btn" href="#agenda">Reservar minha data</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card" style="padding:0; overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1520975922361-48f0d6a2af6c?q=80&w=1200&auto=format&fit=crop" alt="Evellyn em atendimento">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9) PROCESSO & PREPAROS -->
+<section id="processo" class="section bg-soft">
+  <div class="container">
+    <span class="chip">Como funciona</span>
+    <h2>Processo claro — do primeiro contato ao “sim”</h2>
+    <div class="steps" style="margin-top:10px">
+      <div class="step reveal">
+        <div class="n">1</div>
+        <h3>Pré-briefing</h3>
+        <p>Entendo seu estilo, vestido e referências. Definimos a tese do look.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">2</div>
+        <h3>Prévia</h3>
+        <p>Teste de pele, olhos e penteado. Ajustes com luz semelhante à do evento.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">3</div>
+        <h3>Dia da noiva</h3>
+        <p>Ritmo tranquilo, tempo reservado. Fixação e conforto priorizados.</p>
+      </div>
+      <div class="step reveal">
+        <div class="n">4</div>
+        <h3>Pós</h3>
+        <p>Retoques estratégicos e orientações para durar até o fim.</p>
+      </div>
+    </div>
+    <div class="card" style="padding:14px; margin-top:16px">
+      <h3>Checklist rápido para o dia</h3>
+      <ul class="list">
+        <li>Cadeira confortável com encosto</li>
+        <li>Tomada próxima e boa iluminação</li>
+        <li>Pele limpa e hidratada</li>
+        <li>Véu e acessórios à mão</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 10) DEPOIMENTOS (carrossel) -->
+<section id="depoimentos" class="section bg-white">
+  <div class="container">
+    <span class="chip">O que dizem</span>
+    <h2>Depoimentos</h2>
+    <div class="carousel card" style="margin-top:10px; padding:12px">
+      <div class="track" id="track">
+        <div class="slide">
+          <div class="stars">★★★★★</div>
+          <p>“Eu queria algo clássico e leve. A Evellyn acertou exatamente no tom. Fiquei confortável a noite inteira.”</p>
+          <small>Ana • Noiva • São Caetano</small>
+        </div>
+        <div class="slide">
+          <div class="stars">★★★★★</div>
+          <p>“Atendimento em casa salvou meu dia! Nada de correria de salão, e as fotos ficaram lindas.”</p>
+          <small>Larissa • Noiva • Diadema</small>
+        </div>
+        <div class="slide">
+          <div class="stars">★★★★★</div>
+          <p>“Penteado firme com véu e zero dor de cabeça. Recomendo.”</p>
+          <small>Patrícia • Madrinha</small>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="control" id="prev" aria-label="Anterior">‹</button>
+        <button class="control" id="next" aria-label="Próximo">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11) BLOG / DICAS -->
+<section id="blog" class="section bg-soft">
+  <div class="container">
+    <span class="chip">Dicas & Reels</span>
+    <h2>Conteúdos que ajudam você</h2>
+    <div class="blog-grid" style="margin-top:10px">
+      <article class="card" style="overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc2?q=80&w=1200&auto=format&fit=crop" alt="Pele que dura 12h">
+        <div style="padding:14px">
+          <h3>Pele que dura 12h</h3>
+          <p>Rotina e truques para pele confortável e fotográfica.</p>
+          <a class="btn ghost" href="#" aria-disabled="true">Ler em breve</a>
+        </div>
+      </article>
+      <article class="card" style="overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1541537103745-ea3429c65dc1?q=80&w=1200&auto=format&fit=crop" alt="Penteado com véu">
+        <div style="padding:14px">
+          <h3>Como escolher penteado com véu</h3>
+          <p>Fixação, pinagem e conforto — o que considerar.</p>
+          <a class="btn ghost" href="#" aria-disabled="true">Ler em breve</a>
+        </div>
+      </article>
+      <article class="card" style="overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1498522271744-cdd435c13fda?q=80&w=1200&auto=format&fit=crop" alt="Checklist da noiva">
+        <div style="padding:14px">
+          <h3>Checklist do Dia da Noiva</h3>
+          <p>O que preparar para um dia leve e sem imprevistos.</p>
+          <a class="btn ghost" href="#" aria-disabled="true">Ler em breve</a>
+        </div>
+      </article>
+    </div>
+  </div>
+  <svg class="decor" height="110" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,80 C240,30 420,120 700,60 C980,0 1240,90 1440,40 L1440,120 L0,120 Z" fill="rgba(218,182,161,.18)"></path>
+  </svg>
+</section>
+
+<!-- 12) CONTATO / ÁREA DE ATENDIMENTO -->
+<section id="contato" class="section bg-white">
+  <div class="container">
+    <span class="chip">Contato</span>
+    <h2>Fale com a Evellyn</h2>
+    <div class="contact-grid" style="margin-top:10px">
+      <div class="card" style="padding:16px">
+        <p><b>WhatsApp:</b> <a href="https://wa.me/SEU_NUMERO_WHATS" target="_blank" rel="noopener">abrir conversa</a></p>
+        <p><b>Instagram:</b> <a href="https://instagram.com/evellyn_makee" target="_blank" rel="noopener">@evellyn_makee</a></p>
+        <p><b>E-mail:</b> <a href="mailto:contato@evellynmake.com.br">contato@evellynmake.com.br</a></p>
+        <p><b>Atendimento:</b> Diadema • ABC e região</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+          <a class="btn" href="https://wa.me/SEU_NUMERO_WHATS?text=Oi%20Evellyn!%20Podemos%20conversar%20sobre%20minha%20data%3F" target="_blank" rel="noopener">Chamar no Whats</a>
+          <a class="btn secondary" href="#agenda">Ver agenda</a>
+        </div>
+      </div>
+      <div class="map">
+        <h3>Área de atendimento</h3>
+        <p>Diadema • São Bernardo • Santo André • São Caetano • São Paulo (sul) — outras regiões sob consulta.</p>
+        <div style="height:220px; border-radius:12px; background:
+          radial-gradient(800px 220px at 60% 10%, rgba(218,182,161,.25), transparent),
+          linear-gradient(135deg,#fff,#f7ece4); border:1px solid rgba(31,31,31,.06)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <small>© 2025 Evellyn Make — Todos os direitos reservados. • Política de Privacidade</small>
   </div>
 </footer>
 
-<!-- Botão flutuante WhatsApp -->
-<a class="whats" href="https://wa.me/5511987219029?text=Ol%C3%A1%2C%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o" aria-label="Abrir WhatsApp" data-evt="whats-float">WhatsApp</a>
-
-<!-- Schema.org LocalBusiness -->
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"BeautySalon",
- "name":"Casarão da Beleza & Saúde",
- "description":"Beleza que respeita sua essência. Protocolos exclusivos e +10.000 atendimentos em Diadema.",
- "address":{"@type":"PostalAddress","streetAddress":"Rua Itaguaré, 85","addressLocality":"Diadema","addressRegion":"SP","postalCode":"09910-360","addressCountry":"BR"},
- "telephone":"+55 11 98721-9029",
- "url":"https://example.com",
- "sameAs":[
-   "https://www.instagram.com/casaraodabelezaesaude/",
-   "https://www.fresha.com/lvp/casarao-da-beleza-e-saude-rua-itaguare-ov3a29"
- ],
- "openingHours":["Tu-Fr 09:00-20:00","Sa 09:00-16:00"]
-}
-</script>
-
-<!-- Eventos básicos de clique (para futura medição) -->
+<!-- ========= Scripts ========= -->
 <script>
-document.querySelectorAll('[data-evt]').forEach(el=>{
-  el.addEventListener('click', e=>{
-    // placeholder: troque por GA4/pixel — aqui só loga no console
-    console.log('evento', el.getAttribute('data-evt'));
+/* ===== Mobile menu */
+const hamb = document.getElementById('hamb');
+const menu = document.getElementById('menu');
+hamb.addEventListener('click', ()=> menu.classList.toggle('open'));
+
+/* ===== Nav active on scroll */
+const links = [...menu.querySelectorAll('a')];
+const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    const id = '#' + e.target.id;
+    const link = links.find(l => l.getAttribute('href')===id);
+    if(e.isIntersecting){
+      links.forEach(l=>l.classList.remove('active'));
+      link && link.classList.add('active');
+    }
+  });
+},{threshold:0.5});
+sections.forEach(s=> s && obs.observe(s));
+
+/* ===== Reveal on view */
+const rev = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(es=>{
+  es.forEach(x=>{ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target);} });
+},{threshold:0.15});
+rev.forEach(r=>io.observe(r));
+
+/* ===== Before/After slider */
+const ba = document.getElementById('ba');
+const overlay = document.getElementById('overlay');
+if(ba && overlay){
+  const update = ()=> overlay.style.width = ba.value + '%';
+  ba.addEventListener('input', update); update();
+}
+
+/* ===== Portfólio filtro */
+const filBtns = document.querySelectorAll('.filters button');
+const items = document.querySelectorAll('.masonry .item');
+filBtns.forEach(b=>{
+  b.addEventListener('click', ()=>{
+    filBtns.forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.filter;
+    items.forEach(it=>{
+      it.style.display = (f==='all'||it.dataset.cat===f) ? '' : 'none';
+    });
   });
 });
+
+/* ===== Carrossel depoimentos */
+const track = document.getElementById('track');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let idx = 0;
+function go(i){
+  const slides = track.children.length;
+  idx = (i+slides)%slides;
+  track.style.transform = 'translateX(' + (-idx*100) + '%)';
+}
+prev.addEventListener('click', ()=>go(idx-1));
+next.addEventListener('click', ()=>go(idx+1));
+setInterval(()=>go(idx+1), 6000);
+
+/* ===== Form -> WhatsApp prefill */
+const form = document.getElementById('formAgenda');
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const nome = encodeURIComponent(form.nome.value.trim());
+  const data = encodeURIComponent(form.data.value);
+  const cidade = encodeURIComponent(form.cidade.value.trim());
+  const tipo = encodeURIComponent(form.tipo.value);
+  const servico = encodeURIComponent(form.servico.value);
+  const horario = encodeURIComponent(form.horario.value.trim());
+  const detalhes = encodeURIComponent(form.detalhes.value.trim());
+  const msg = `Oi Evellyn! 💍
+Meu nome é ${nome}.
+Quero consultar disponibilidade para ${tipo} (${servico}).
+Data: ${data} • Horário: ${horario}
+Cidade/Bairro: ${cidade}
+Detalhes: ${detalhes}`;
+  const url = `https://wa.me/SEU_NUMERO_WHATS?text=${msg}`;
+  window.open(url, '_blank');
+});
+
+/* ===== Suavizar âncoras no mobile e fechar menu */
+menu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click', ()=>{
+    if(menu.classList.contains('open')) menu.classList.remove('open');
+  });
+});
+</script>
+
+<!-- ===== JSON-LD (SEO local) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Evellyn Make",
+  "description": "Maquiagem e penteado a domicílio em Diadema e região. Especialista em noivas e eventos.",
+  "areaServed": ["Diadema","São Bernardo","Santo André","São Caetano","São Paulo"],
+  "sameAs": ["https://instagram.com/evellyn_makee"],
+  "url": "https://exemplo.com", 
+  "telephone": "SEU_NUMERO_WHATS",
+  "priceRange": "$$"
+}
 </script>
 </body>
 </html>
